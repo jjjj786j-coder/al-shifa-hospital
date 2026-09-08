@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Al-Shifa International Hospital Lahore</title>
+    <title>About Us | Al-Shifa International Hospital</title>
     
-    <!-- Google Fonts: DM Serif Display & DM Sans -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-
     <script>
         tailwind.config = {
             theme: {
@@ -22,496 +19,209 @@
                     fontFamily: {
                         serif: ['"DM Serif Display"', 'serif'],
                         sans: ['"DM Sans"', 'sans-serif'],
-                        mono: ['Courier New', 'monospace'],
-                    },
-                    colors: {
-                        forest: {
-                            DEFAULT: '#1B4332',
-                            light: '#2D6A4F',
-                            soft: '#D8F3DC',
-                            dark: '#081C15',
-                        },
-                        amberAccent: {
-                            DEFAULT: '#BC6C25',
-                            soft: '#FEFAE0',
-                            light: '#DDA15E',
-                        },
-                        warmBg: '#FDFCF9',
-                        warmAlt: '#F5F0E8',
-                        warmBorder: '#D6D2C4',
-                        emergencyRed: '#C1121F',
                     }
                 }
             }
         }
     </script>
-    <style>
-        @keyframes pulse-dot {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.4); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        .pulse-red { animation: pulse-dot 1.5s infinite ease-in-out; }
-        .fade-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .fade-up.visible { opacity: 1; transform: translateY(0); }
-        .drop-cap::first-letter {
-            font-family: "DM Serif Display", serif;
-            font-size: 4rem;
-            line-height: 0.8;
-            float: left;
-            margin-right: 0.75rem;
-            color: #1B4332;
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .pulse-red, .fade-up { animation: none !important; transition: none !important; }
-        }
-    </style>
 </head>
-<body class="font-sans text-[#1A1A1A] bg-[#FDFCF9] antialiased selection:bg-[#D8F3DC] selection:text-[#1B4332]">
+<body class="bg-[#FDFCF9] text-[#1A1A1A] font-sans antialiased overflow-x-hidden">
 
-    <!-- EMERGENCY BAR -->
-    <div id="emergency-bar" class="bg-[#C1121F] text-white py-2.5 px-4 text-xs sm:text-sm font-medium sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-            <div class="flex items-center gap-2.5 flex-wrap">
-                <span class="inline-flex items-center justify-center w-3 h-3 bg-white rounded-full relative">
-                    <span class="w-2.5 h-2.5 bg-[#C1121F] rounded-full pulse-red"></span>
-                </span>
-                <span class="font-bold uppercase tracking-widest text-[11px] bg-red-900/60 px-2 py-0.5 rounded text-red-100">Emergency</span>
-                <span class="font-normal opacity-90">Call NOW:</span>
-                <a href="tel:+924235771122" class="font-bold underline hover:text-red-100 transition-colors tracking-wide">
-                    +92 42 35771122
-                </a>
-            </div>
-            <div class="flex items-center gap-3">
-                <button id="close-emergency" class="text-white/80 hover:text-white p-1 rounded-md transition-colors" aria-label="Close Banner">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
+    <!-- EMERGENCY TOP BAR (Sticky, closely managed) -->
+    <div id="emergency-bar" class="bg-[#C1121F] text-white text-xs md:text-sm py-2 px-4 sticky top-0 z-50 flex justify-between items-center transition-all duration-300">
+        <div class="flex items-center gap-2 mx-auto">
+            <span class="w-2.5 h-2.5 bg-white rounded-full animate-ping"></span>
+            <span class="font-bold">EMERGENCY:</span>
+            <span>Call +92 42 35771122</span>
+            <span class="hidden md:inline">| 24/7 Ambulance & Trauma Service</span>
         </div>
+        <button onclick="closeEmergency()" class="text-white hover:text-red-200 font-bold px-2">✕</button>
     </div>
 
-    <!-- NAVBAR -->
-    <header id="main-nav" class="fixed top-[37px] inset-x-0 z-40 transition-all duration-500 py-5">
-        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 bg-[#1B4332] text-[#FEFAE0] rounded-xl flex items-center justify-center font-serif text-xl font-bold shadow-md group-hover:scale-105 transition-transform">
-                    AS
-                </div>
-                <div>
-                    <span class="font-serif font-bold text-2xl text-[#1B4332] leading-none block tracking-tight">Al-Shifa</span>
-                    <span class="text-[10px] font-semibold text-[#BC6C25] tracking-[0.25em] uppercase block mt-0.5">International Hospital</span>
-                </div>
-            </a>
-
-            <nav class="hidden lg:flex items-center gap-9 font-medium text-sm text-[#4A4A4A]">
-                <a href="index.html" class="hover:text-[#1B4332] transition-colors pb-1">Home</a>
-                <a href="about.html" class="text-[#1B4332] font-semibold border-b-2 border-[#1B4332] pb-1">About Us</a>
-                <a href="departments.html" class="hover:text-[#1B4332] transition-colors pb-1">Departments</a>
-                <a href="doctors.html" class="hover:text-[#1B4332] transition-colors pb-1">Doctors</a>
-                <a href="contact.html" class="hover:text-[#1B4332] transition-colors pb-1">Contact</a>
-            </nav>
-
-            <div class="flex items-center gap-4">
-                <a href="contact.html" class="hidden sm:inline-flex items-center justify-center gap-2 bg-[#1B4332] hover:bg-[#2D6A4F] text-white font-semibold px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all text-sm">
-                    <span>Book Appointment</span>
-                </a>
-                <button id="mobile-toggle" class="lg:hidden p-2 text-[#1B4332] focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
+    <!-- NAVBAR (Sticky on Scroll) -->
+    <nav id="main-nav" class="sticky top-0 z-40 w-full transition-all duration-300 bg-white shadow-sm border-b border-[#D6D2C4]">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-serif text-2xl text-[#1B4332] font-bold">Al-Shifa</a>
+            
+            <div class="hidden md:flex items-center gap-8 font-medium">
+                <a href="index.html" class="hover:text-[#BC6C25] transition-colors">Home</a>
+                <a href="about.html" class="text-[#BC6C25] font-semibold">About</a>
+                <a href="departments.html" class="hover:text-[#BC6C25] transition-colors">Departments</a>
+                <a href="doctors.html" class="hover:text-[#BC6C25] transition-colors">Doctors</a>
+                <a href="contact.html" class="hover:text-[#BC6C25] transition-colors">Contact</a>
             </div>
+
+            <a href="contact.html" class="hidden md:inline-block bg-[#1B4332] text-white px-6 py-2.5 rounded-full hover:bg-[#2D6A4F] transition-all text-sm font-semibold">Book Appointment</a>
+            
+            <!-- Mobile Menu Btn -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-[#1B4332] focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
         </div>
 
-        <div id="mobile-menu" class="hidden lg:hidden bg-[#FDFCF9] border-b border-[#D6D2C4] px-6 py-6 space-y-4 font-medium text-[#1A1A1A] shadow-xl">
-            <a href="index.html" class="block hover:text-[#1B4332] py-1 text-lg">Home</a>
-            <a href="about.html" class="block text-[#1B4332] font-bold py-1 text-lg">About Us</a>
-            <a href="departments.html" class="block hover:text-[#1B4332] py-1 text-lg">Departments</a>
-            <a href="doctors.html" class="block hover:text-[#1B4332] py-1 text-lg">Doctors</a>
-            <a href="contact.html" class="block hover:text-[#1B4332] py-1 text-lg">Contact</a>
-            <a href="contact.html" class="block w-full text-center bg-[#1B4332] text-white py-3 rounded-full font-bold mt-4">Book Appointment</a>
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-[#D6D2C4] px-6 py-4 space-y-3">
+            <a href="index.html" class="block py-1 hover:text-[#BC6C25]">Home</a>
+            <a href="about.html" class="block py-1 text-[#BC6C25] font-semibold">About</a>
+            <a href="departments.html" class="block py-1 hover:text-[#BC6C25]">Departments</a>
+            <a href="doctors.html" class="block py-1 hover:text-[#BC6C25]">Doctors</a>
+            <a href="contact.html" class="block py-1 hover:text-[#BC6C25]">Contact</a>
+            <a href="contact.html" class="block w-full text-center bg-[#1B4332] text-white py-2 rounded-full text-sm">Book Appointment</a>
         </div>
-    </header>
+    </nav>
 
-    <!-- 4. HERO WITH BACKGROUND IMAGE + DARK OVERLAY + WHITE TEXT -->
-    <section class="relative pt-36 pb-24 md:py-36 bg-[#1B4332] text-white overflow-hidden min-h-[450px]">
-        <div class="absolute inset-0 bg-[#081C15]/80 z-10"></div>
-        <img src="https://picsum.photos/id/305/1200/600" alt="Al-Shifa Hospital Hero" class="absolute inset-0 w-full h-full object-cover z-0" onerror="this.style.display='none'">
-        <div class="relative z-20 max-w-7xl mx-auto px-6 text-center space-y-6 fade-up">
-            <span class="text-[11px] font-semibold tracking-[0.4em] uppercase text-[#FEFAE0]">ESTABLISHED 2008 • LAHORE, PAKISTAN</span>
-            <h1 class="font-serif text-5xl md:text-7xl text-[#FEFAE0]">A Legacy of Healing & Compassion</h1>
-            <p class="text-[#D8F3DC] text-lg max-w-3xl mx-auto font-light leading-relaxed">
-                Dedicated to pioneering healthcare excellence, foreign-trained clinical expertise, and patient-centered compassionate care in DHA Phase 5, Lahore.
-            </p>
+    <!-- HERO SECTION (GUARANTEED NO BLANK - WARM FOREST GRADIENT BG) -->
+    <section class="min-h-[50vh] md:min-h-[60vh] bg-gradient-to-br from-[#1B4332] via-[#2D6A4F] to-[#081C15] text-white flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-grid-pattern"></div>
+        <div class="max-w-7xl mx-auto px-6 py-16 relative z-10 w-full">
+            <span class="text-xs uppercase tracking-[0.3em] text-[#FEFAE0] font-semibold">ESTABLISHED 2008</span>
+            <h1 class="text-4xl md:text-7xl font-serif mt-4 font-bold leading-tight">Our Story of Healing & Trust</h1>
+            <p class="text-lg md:text-xl text-[#D8F3DC] mt-6 max-w-2xl font-light">16 years of providing world-class compassionate healthcare in the heart of Lahore, Pakistan.</p>
         </div>
     </section>
 
-    <!-- OUR STORY SECTION (TEXT + IMAGE SIDE BY SIDE) -->
-    <section class="py-24 bg-[#F5F0E8] border-b border-[#D6D2C4]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <!-- OUR STORY SECTION (Split, clean asymmetric) -->
+    <section class="py-20 md:py-32 max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-xs uppercase tracking-[0.25em] text-[#BC6C25] font-semibold">WHO WE ARE</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-[#1B4332]">Committed to Your Family's Wellbeing</h2>
+                <p class="text-[#4A4A4A] leading-relaxed">Al-Shifa International Hospital DHA Lahore was founded with a singular mission: to bring transparent, ethical, and international-standard medical care to our community. Our state-of-the-art facility integrates premium surgical departments, intensive care wards, and advanced diagnostics under the guidance of top clinical experts.</p>
+                <p class="text-[#4A4A4A] leading-relaxed">As a JCI-accredited facility, we enforce rigorous sterilization, clinical safety, and documentation standards modeled directly on global benchmarks, ensuring peace of mind for every patient.</p>
+            </div>
+            <div class="relative">
+                <div class="absolute inset-0 bg-[#BC6C25]/5 rounded-3xl transform translate-x-4 translate-y-4"></div>
+                <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=800&q=80" alt="Consultation" class="rounded-3xl shadow-xl relative z-10 w-full object-cover h-[450px]">
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE SECTION (Vertical Timeline) -->
+    <section class="py-20 bg-[#F5F0E8] border-y border-[#D6D2C4]">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-[0.25em] text-[#BC6C25] font-semibold">OUR JOURNEY</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-[#1B4332] mt-2">Evolution of Care</h2>
+            </div>
+
+            <!-- Timeline Line -->
+            <div class="relative border-l-2 border-[#1B4332]/20 pl-8 space-y-12">
                 
-                <!-- Story Text Left -->
-                <div class="lg:col-span-7 space-y-6 fade-up">
-                    <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#BC6C25]">THE AL-SHIFA STORY</span>
-                    <h2 class="font-serif text-4xl text-[#1B4332]">Founded on Principles of Patient First Care</h2>
-                    <div class="text-[#4A4A4A] text-base leading-relaxed space-y-4 drop-cap">
-                        Al-Shifa International Hospital was established in 2008 with a simple yet ambitious vision: to build a medical institute where patients in Pakistan receive world-class tertiary healthcare without having to travel abroad. Starting as a 50-bed cardiac specialty hospital in DHA Lahore, our founders prioritized clinical integrity, foreign-trained clinical leadership, and strict compliance with international safety protocols.
-                    </div>
-                    <p class="text-[#4A4A4A] text-base leading-relaxed font-light">
-                        Today, Al-Shifa has expanded into a flagship 250+ bed tertiary care hospital equipped with 15+ medical departments, Level-III NICU facilities, digital catheterization labs, and Pakistan's premier robotic knee replacement suites.
-                    </p>
+                <!-- Point 1 -->
+                <div class="relative">
+                    <span class="absolute -left-[41px] top-1.5 w-6 h-6 bg-[#1B4332] border-4 border-[#F5F0E8] rounded-full"></span>
+                    <span class="font-mono text-2xl font-bold text-[#BC6C25]">2008</span>
+                    <h3 class="text-xl font-serif font-bold text-[#1B4332] mt-1">Foundation Laid</h3>
+                    <p class="text-[#4A4A4A] mt-2">Al-Shifa launched its primary outpatient and emergency services wing in DHA Lahore with a 30-bed capacity.</p>
                 </div>
 
-                <!-- Exterior Image Right -->
-                <div class="lg:col-span-5 relative fade-up">
-                    <div class="rounded-3xl overflow-hidden shadow-2xl border border-[#D6D2C4] bg-[#1B4332] min-h-[360px]">
-                        <img src="https://picsum.photos/id/287/1200/600" alt="Hospital Exterior DHA Lahore" class="w-full h-[400px] object-cover" onerror="this.style.display='none'">
-                    </div>
+                <!-- Point 2 -->
+                <div class="relative">
+                    <span class="absolute -left-[41px] top-1.5 w-6 h-6 bg-[#1B4332] border-4 border-[#F5F0E8] rounded-full"></span>
+                    <span class="font-mono text-2xl font-bold text-[#BC6C25]">2012</span>
+                    <h3 class="text-xl font-serif font-bold text-[#1B4332] mt-1">JCI Accreditation</h3>
+                    <p class="text-[#4A4A4A] mt-2">Achieved prestigious Joint Commission International (JCI) gold seal of approval for compliance with patient safety protocols.</p>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- TIMELINE (2008, 2012, 2018, 2024) -->
-    <section class="py-24 md:py-36 bg-[#FDFCF9]">
-        <div class="max-w-7xl mx-auto px-6 space-y-16">
-            <div class="text-center max-w-2xl mx-auto">
-                <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#1B4332]">KEY MILESTONES</span>
-                <h2 class="font-serif text-4xl md:text-5xl text-[#1B4332] mt-2">16 Years Timeline</h2>
-            </div>
-
-            <div class="relative max-w-3xl mx-auto before:absolute before:inset-0 before:left-6 sm:before:left-1/2 before:-ml-0.5 before:w-1 before:bg-[#1B4332]/30 space-y-12">
-                
-                <!-- Event 1 -->
-                <div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 group">
-                    <div class="sm:w-5/12 pl-14 sm:pl-0 sm:text-right">
-                        <span class="font-mono text-3xl font-bold text-[#BC6C25]">2008</span>
-                        <h4 class="font-serif text-xl font-bold text-[#1B4332] mt-1">Foundation Laying</h4>
-                        <p class="text-xs text-[#7A7A7A] mt-1 leading-relaxed">Inaugurated as a 50-bed cardiac center on Main Boulevard, DHA Phase 5, Lahore.</p>
-                    </div>
-                    <div class="absolute left-3 sm:left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-[#1B4332] border-4 border-white shadow-md z-10"></div>
-                    <div class="sm:w-5/12 hidden sm:block"></div>
+                <!-- Point 3 -->
+                <div class="relative">
+                    <span class="absolute -left-[41px] top-1.5 w-6 h-6 bg-[#1B4332] border-4 border-[#F5F0E8] rounded-full"></span>
+                    <span class="font-mono text-2xl font-bold text-[#BC6C25]">2018</span>
+                    <h3 class="text-xl font-serif font-bold text-[#1B4332] mt-1">Surgical & Trauma Wing</h3>
+                    <p class="text-[#4A4A4A] mt-2">Expanded to a 150-bed inpatient tower with 5 modular laminar-flow operating theaters and critical care units.</p>
                 </div>
 
-                <!-- Event 2 -->
-                <div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 group">
-                    <div class="sm:w-5/12 hidden sm:block"></div>
-                    <div class="absolute left-3 sm:left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-[#1B4332] border-4 border-white shadow-md z-10"></div>
-                    <div class="sm:w-5/12 pl-14 sm:pl-0 sm:text-left">
-                        <span class="font-mono text-3xl font-bold text-[#BC6C25]">2012</span>
-                        <h4 class="font-serif text-xl font-bold text-[#1B4332] mt-1">JCI Accreditation</h4>
-                        <p class="text-xs text-[#7A7A7A] mt-1 leading-relaxed">Earned Joint Commission International accreditation for quality & clinical safety.</p>
-                    </div>
-                </div>
-
-                <!-- Event 3 -->
-                <div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 group">
-                    <div class="sm:w-5/12 pl-14 sm:pl-0 sm:text-right">
-                        <span class="font-mono text-3xl font-bold text-[#BC6C25]">2018</span>
-                        <h4 class="font-serif text-xl font-bold text-[#1B4332] mt-1">250-Bed Expansion</h4>
-                        <p class="text-xs text-[#7A7A7A] mt-1 leading-relaxed">Constructed modern inpatient tower adding Level-III NICU & Oncology wings.</p>
-                    </div>
-                    <div class="absolute left-3 sm:left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-[#1B4332] border-4 border-white shadow-md z-10"></div>
-                    <div class="sm:w-5/12 hidden sm:block"></div>
-                </div>
-
-                <!-- Event 4 -->
-                <div class="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 group">
-                    <div class="sm:w-5/12 hidden sm:block"></div>
-                    <div class="absolute left-3 sm:left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-[#1B4332] border-4 border-white shadow-md z-10"></div>
-                    <div class="sm:w-5/12 pl-14 sm:pl-0 sm:text-left">
-                        <span class="font-mono text-3xl font-bold text-[#BC6C25]">2024</span>
-                        <h4 class="font-serif text-xl font-bold text-[#1B4332] mt-1">Robotic Surgery Suite</h4>
-                        <p class="text-xs text-[#7A7A7A] mt-1 leading-relaxed">Launched state-of-the-art robotic knee replacement and digital angiography suite.</p>
-                    </div>
+                <!-- Point 4 -->
+                <div class="relative">
+                    <span class="absolute -left-[41px] top-1.5 w-6 h-6 bg-[#1B4332] border-4 border-[#F5F0E8] rounded-full"></span>
+                    <span class="font-mono text-2xl font-bold text-[#BC6C25]">2024</span>
+                    <h3 class="text-xl font-serif font-bold text-[#1B4332] mt-1">Robotic & Minimal Invasive Surgery</h3>
+                    <p class="text-[#4A4A4A] mt-2">Pioneered advanced robotic-assisted diagnostic and surgical systems in central Punjab.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- FACILITIES GRID (6 IMAGES) -->
-    <section class="py-24 bg-[#F5F0E8] border-y border-[#D6D2C4]">
-        <div class="max-w-7xl mx-auto px-6 space-y-16">
-            <div class="text-center max-w-3xl mx-auto">
-                <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#1B4332]">ADVANCED INFRASTRUCTURE</span>
-                <h2 class="font-serif text-4xl md:text-5xl text-[#1B4332] mt-2">Our Facilities Mosaic</h2>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Image 1: Surgery Team -->
-                <div class="lg:col-span-2 rounded-3xl overflow-hidden shadow-md group relative min-h-[300px] bg-[#1B4332]">
-                    <img src="https://picsum.photos/id/433/800/500" alt="Operation Theatre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/80 via-transparent to-transparent p-6 flex flex-col justify-end text-white">
-                        <h3 class="font-serif text-2xl font-bold">Modular Operation Suites</h3>
-                        <p class="text-xs text-[#D8F3DC] font-light mt-1">8 Cleanroom laminar airflow surgical theatres.</p>
-                    </div>
-                </div>
-
-                <!-- Image 2: Lab -->
-                <div class="rounded-3xl overflow-hidden shadow-md group relative h-[300px] bg-[#1B4332]">
-                    <img src="https://picsum.photos/id/180/800/500" alt="Diagnostic Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/80 via-transparent to-transparent p-6 flex flex-col justify-end text-white">
-                        <h3 class="font-serif text-xl font-bold">Robotic Diagnostic Lab</h3>
-                        <p class="text-xs text-[#D8F3DC] font-light mt-1">Automated pathology & PCR diagnostics.</p>
-                    </div>
-                </div>
-
-                <!-- Image 3: Patient Care -->
-                <div class="rounded-3xl overflow-hidden shadow-md group relative h-[300px] bg-[#1B4332]">
-                    <img src="https://picsum.photos/id/177/800/500" alt="Patient Care Wards" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/80 via-transparent to-transparent p-6 flex flex-col justify-end text-white">
-                        <h3 class="font-serif text-xl font-bold">Private Executive Wards</h3>
-                        <p class="text-xs text-[#D8F3DC] font-light mt-1">Comfortable, patient-centered rooms.</p>
-                    </div>
-                </div>
-
-                <!-- Image 4: Emergency -->
-                <div class="lg:col-span-2 rounded-3xl overflow-hidden shadow-md group relative min-h-[300px] bg-[#1B4332]">
-                    <img src="https://picsum.photos/id/306/800/500" alt="Emergency Room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/80 via-transparent to-transparent p-6 flex flex-col justify-end text-white">
-                        <h3 class="font-serif text-2xl font-bold">24/7 Emergency & Resuscitation</h3>
-                        <p class="text-xs text-[#D8F3DC] font-light mt-1">Fully equipped level-1 trauma response bays.</p>
-                    </div>
-                </div>
-
-                <!-- Image 5: MRI -->
-                <div class="rounded-3xl overflow-hidden shadow-md group relative h-[300px] bg-[#1B4332]">
-                    <img src="https://picsum.photos/id/152/800/500" alt="MRI Scanner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/80 via-transparent to-transparent p-6 flex flex-col justify-end text-white">
-                        <h3 class="font-serif text-xl font-bold">3T Siemens MRI Suite</h3>
-                        <p class="text-xs text-[#D8F3DC] font-light mt-1">High-definition neuro & cardiac scans.</p>
-                    </div>
-                </div>
-
-                <!-- Image 6: Corridor -->
-                <div class="lg:col-span-2 rounded-3xl overflow-hidden shadow-md group relative h-[300px] bg-[#1B4332]">
-                    <img src="https://picsum.photos/id/247/1200/500" alt="Hospital Corridor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/80 via-transparent to-transparent p-6 flex flex-col justify-end text-white">
-                        <h3 class="font-serif text-xl font-bold">Modern Hospital Complex</h3>
-                        <p class="text-xs text-[#D8F3DC] font-light mt-1">Designed for patient comfort, sanitation, and calm.</p>
-                    </div>
-                </div>
-            </div>
+    <!-- FACILITIES MOSAIC SECTION (Clean Image Grid) -->
+    <section class="py-20 md:py-32 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <span class="text-xs uppercase tracking-[0.25em] text-[#BC6C25] font-semibold">INFRASTRUCTURE</span>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-[#1B4332] mt-2">Clinical Excellence & Technology</h2>
         </div>
-    </section>
 
-    <!-- ACCREDITATIONS & LEADERSHIP -->
-    <section class="py-24 md:py-36 bg-[#FDFCF9]">
-        <div class="max-w-7xl mx-auto px-6 space-y-16">
-            <div class="text-center max-w-3xl mx-auto">
-                <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#1B4332]">QUALITY STANDARDS</span>
-                <h2 class="font-serif text-4xl md:text-5xl text-[#1B4332] mt-2">Accreditations & Governance</h2>
-            </div>
-
-            <!-- Accreditations Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-8 bg-[#F5F0E8] border border-[#D6D2C4] rounded-3xl text-center space-y-3">
-                    <div class="w-12 h-12 bg-[#1B4332] text-white rounded-2xl flex items-center justify-center font-bold font-mono mx-auto">
-                        JCI
-                    </div>
-                    <h3 class="font-serif font-bold text-xl text-[#1B4332]">JCI Accredited</h3>
-                    <p class="text-xs text-[#7A7A7A] leading-relaxed">Joint Commission International Gold Seal for clinical quality and patient safety.</p>
-                </div>
-
-                <div class="p-8 bg-[#F5F0E8] border border-[#D6D2C4] rounded-3xl text-center space-y-3">
-                    <div class="w-12 h-12 bg-[#BC6C25] text-white rounded-2xl flex items-center justify-center font-bold font-mono mx-auto">
-                        PMDC
-                    </div>
-                    <h3 class="font-serif font-bold text-xl text-[#1B4332]">PMDC Registered</h3>
-                    <p class="text-xs text-[#7A7A7A] leading-relaxed">Pakistan Medical & Dental Council officially recognized teaching faculty hospital.</p>
-                </div>
-
-                <div class="p-8 bg-[#F5F0E8] border border-[#D6D2C4] rounded-3xl text-center space-y-3">
-                    <div class="w-12 h-12 bg-[#2D6A4F] text-white rounded-2xl flex items-center justify-center font-bold font-mono mx-auto">
-                        ISO
-                    </div>
-                    <h3 class="font-serif font-bold text-xl text-[#1B4332]">ISO 9001:2015</h3>
-                    <p class="text-xs text-[#7A7A7A] leading-relaxed">Certified Quality Management Systems across diagnostic and inpatient services.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="overflow-hidden rounded-2xl h-80 relative group">
+                <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=600&q=80" alt="ICU Wards" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                    <span class="text-white font-serif text-lg">Advanced ICU & Critical Care</span>
                 </div>
             </div>
-
-            <!-- Leadership Row -->
-            <div class="pt-12 border-t border-[#D6D2C4]/60">
-                <h3 class="font-serif text-2xl font-bold text-[#1B4332] text-center mb-8">Executive Clinical Leadership</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-2xl border border-[#D6D2C4] p-6 shadow-sm flex items-center gap-4 bg-[#F5F0E8]/40">
-                        <div class="w-20 h-20 rounded-full overflow-hidden bg-[#1B4332] shrink-0">
-                            <img src="https://picsum.photos/id/338/400/500" alt="Prof. Dr. Tariq Mahmood" class="w-full h-full object-cover" onerror="this.style.display='none'">
-                        </div>
-                        <div>
-                            <h4 class="font-serif font-bold text-lg text-[#1B4332]">Dr. Tariq Mahmood</h4>
-                            <p class="text-xs text-[#BC6C25] font-semibold">Medical Director</p>
-                            <p class="text-[11px] text-[#7A7A7A] mt-1">25+ Yrs Clinical Governance</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-2xl border border-[#D6D2C4] p-6 shadow-sm flex items-center gap-4 bg-[#F5F0E8]/40">
-                        <div class="w-20 h-20 rounded-full overflow-hidden bg-[#1B4332] shrink-0">
-                            <img src="https://picsum.photos/id/349/400/500" alt="Dr. Zainab Bilal" class="w-full h-full object-cover" onerror="this.style.display='none'">
-                        </div>
-                        <div>
-                            <h4 class="font-serif font-bold text-lg text-[#1B4332]">Dr. Zainab Bilal</h4>
-                            <p class="text-xs text-[#BC6C25] font-semibold">Director Clinical Safety</p>
-                            <p class="text-[11px] text-[#7A7A7A] mt-1">JCI Quality Assurance Lead</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-2xl border border-[#D6D2C4] p-6 shadow-sm flex items-center gap-4 bg-[#F5F0E8]/40">
-                        <div class="w-20 h-20 rounded-full overflow-hidden bg-[#1B4332] shrink-0">
-                            <img src="https://picsum.photos/id/350/400/500" alt="Dr. Hamza Raza" class="w-full h-full object-cover" onerror="this.style.display='none'">
-                        </div>
-                        <div>
-                            <h4 class="font-serif font-bold text-lg text-[#1B4332]">Dr. Hamza Raza</h4>
-                            <p class="text-xs text-[#BC6C25] font-semibold">Chief Surgical Officer</p>
-                            <p class="text-[11px] text-[#7A7A7A] mt-1">Robotic Surgery Specialist</p>
-                        </div>
-                    </div>
+            <div class="overflow-hidden rounded-2xl h-80 relative group">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" alt="Operating Theaters" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                    <span class="text-white font-serif text-lg">Laminar Flow Modular OTs</span>
+                </div>
+            </div>
+            <div class="overflow-hidden rounded-2xl h-80 relative group">
+                <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80" alt="Inpatient Ward" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                    <span class="text-white font-serif text-lg">Deluxe Private Rooms</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-[#081C15] text-slate-300 pt-16 pb-12 border-t border-[#1B4332]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#1B4332]">
-                <div class="space-y-4">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-[#D8F3DC] text-[#1B4332] rounded-xl flex items-center justify-center font-serif text-lg font-bold">AS</div>
-                        <div>
-                            <p class="font-serif font-bold text-white text-xl leading-none">Al-Shifa</p>
-                            <p class="text-[10px] text-[#BC6C25] font-semibold tracking-widest uppercase mt-0.5">International Hospital</p>
-                        </div>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed font-light">
-                        Premier 250+ bed tertiary care hospital on Main Boulevard, DHA Phase 5, Lahore. Delivering evidence-based compassionate medical care since 2008.
-                    </p>
-                </div>
-
-                <div class="space-y-3">
-                    <p class="font-serif font-bold text-white text-base tracking-wide">Quick Links</p>
-                    <ul class="space-y-2 text-xs text-slate-400">
-                        <li><a href="about.html" class="hover:text-white transition-colors">About Hospital</a></li>
-                        <li><a href="departments.html" class="hover:text-white transition-colors">Medical Departments</a></li>
-                        <li><a href="doctors.html" class="hover:text-white transition-colors">Specialist Doctors</a></li>
-                        <li><a href="contact.html" class="hover:text-white transition-colors">Book Appointment</a></li>
-                    </ul>
-                </div>
-
-                <div class="space-y-3">
-                    <p class="font-serif font-bold text-white text-base tracking-wide">Working Hours</p>
-                    <div class="text-xs space-y-2 text-slate-400">
-                        <p><strong class="text-white">OPD Clinics:</strong> 8:00 AM – 10:00 PM</p>
-                        <p><strong class="text-white">Emergency Unit:</strong> 24 Hours / 7 Days</p>
-                        <p><strong class="text-white">Pharmacy & Lab:</strong> 24 Hours Open</p>
-                    </div>
-                </div>
-
-                <div class="space-y-3">
-                    <p class="font-serif font-bold text-white text-base tracking-wide">Contact & Emergency</p>
-                    <div class="text-xs space-y-2 text-slate-400">
-                        <p class="text-red-400 font-bold">24/7 Emergency: +92 42 35771122</p>
-                        <p>Reception: +92 42 35771100</p>
-                        <p>WhatsApp: +92 300 1234567</p>
-                        <p>Email: info@alshifahospital.pk</p>
-                        <p class="pt-1 text-slate-400">Main Boulevard, DHA Phase 5, Lahore</p>
-                    </div>
-                </div>
+    <footer class="bg-[#1B4332] text-[#D8F3DC] pt-16 pb-8 border-t border-[#D6D2C4]/20">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div>
+                <span class="font-serif text-2xl text-white font-bold">Al-Shifa</span>
+                <p class="text-xs text-[#D8F3DC]/70 mt-4 leading-relaxed">Bringing ethical, high-quality, international standard healthcare to DHA Lahore and surrounding communities.</p>
             </div>
-
-            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-                <p>© 2026 Al-Shifa International Hospital. All Rights Reserved.</p>
-                <div class="flex gap-6">
-                    <a href="https://facebook.com" target="_blank" class="hover:text-white">Facebook</a>
-                    <a href="https://instagram.com" target="_blank" class="hover:text-white">Instagram</a>
-                </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-[#D8F3DC]/80">
+                    <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="departments.html" class="hover:text-white transition-colors">Departments</a></li>
+                    <li><a href="doctors.html" class="hover:text-white transition-colors">Our Doctors</a></li>
+                </ul>
             </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Departments</h4>
+                <ul class="space-y-2 text-sm text-[#D8F3DC]/80">
+                    <li>Cardiology</li>
+                    <li>Neurology</li>
+                    <li>Pediatrics</li>
+                    <li>Emergency & Trauma</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contact Us</h4>
+                <p class="text-sm text-[#D8F3DC]/80">Main Boulevard, Phase 5 DHA, Lahore</p>
+                <p class="text-sm text-white font-bold mt-2">Tel: +92 42 35771100</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/10 text-center text-xs text-[#D8F3DC]/50">
+            &copy; 2025 Al-Shifa International Hospital. All Rights Reserved. PMDC & JCI Certified Practice.
         </div>
     </footer>
 
-    <!-- FLOATING CHATBOT WIDGET -->
-    <div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
-        <button id="chatbot-toggle" class="w-14 h-14 bg-[#1B4332] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform border-2 border-[#FEFAE0]" aria-label="Open Medical Assistant">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
-        </button>
-
-        <div id="chatbot-window" class="hidden fixed bottom-24 right-6 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-3xl shadow-2xl border border-[#D6D2C4] overflow-hidden flex flex-col h-[480px]">
-            <div class="bg-[#1B4332] text-white p-4 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-full bg-[#D8F3DC] text-[#1B4332] flex items-center justify-center font-bold text-sm">AS</div>
-                    <div>
-                        <h4 class="font-serif font-bold text-base leading-none">Al-Shifa Assistant</h4>
-                        <span class="text-[10px] text-[#FEFAE0] opacity-90 flex items-center gap-1 mt-0.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Online</span>
-                    </div>
-                </div>
-                <button id="chatbot-close" class="text-white/80 hover:text-white p-1">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs text-slate-700 bg-[#FDFCF9]">
-                <div class="bg-[#F5F0E8] p-3 rounded-2xl max-w-[85%] border border-[#D6D2C4]/60">
-                    Welcome to Al-Shifa Hospital! How can I help you with our history or facilities?
-                </div>
-            </div>
-            <form id="chat-form" class="p-3 border-t border-[#D6D2C4] bg-white flex gap-2">
-                <input type="text" id="chat-input" placeholder="Type a message..." class="flex-1 px-3 py-2 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-1 focus:ring-[#1B4332]">
-                <button type="submit" class="bg-[#1B4332] text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-[#2D6A4F] transition-colors">Send</button>
-            </form>
-        </div>
-    </div>
+    <!-- CHATBOT -->
+    <script src="https://cdn.zanderio.ai/widget/loader.js" data-id="wdg_9PUs32T0N9w7KD0RI3pj4k1l" defer></script>
 
     <script>
-        if (typeof Lenis !== 'undefined') {
-            const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-            requestAnimationFrame(raf);
+        function closeEmergency() {
+            document.getElementById('emergency-bar').style.display = 'none';
+            localStorage.setItem('emgClosed', 'true');
         }
-
-        const emergencyBar = document.getElementById('emergency-bar');
-        const closeEmergencyBtn = document.getElementById('close-emergency');
-        const mainNav = document.getElementById('main-nav');
-
-        if (localStorage.getItem('emgClosed') === 'true' && emergencyBar) {
-            emergencyBar.style.display = 'none';
-            if (mainNav) mainNav.style.top = '0px';
+        if (localStorage.getItem('emgClosed') === 'true') {
+            document.getElementById('emergency-bar').style.display = 'none';
         }
-
-        if (closeEmergencyBtn) {
-            closeEmergencyBtn.onclick = () => {
-                if (emergencyBar) emergencyBar.style.display = 'none';
-                if (mainNav) mainNav.style.top = '0px';
-                localStorage.setItem('emgClosed', 'true');
-            };
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!mainNav) return;
-            if (window.scrollY > 80) {
-                mainNav.classList.add('bg-white', 'shadow-md', 'py-3');
-                mainNav.classList.remove('bg-transparent', 'py-5');
-            } else {
-                mainNav.classList.remove('bg-white', 'shadow-md', 'py-3');
-                mainNav.classList.add('bg-transparent', 'py-5');
-            }
-        });
-
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileToggle && mobileMenu) {
-            mobileToggle.onclick = () => mobileMenu.classList.toggle('hidden');
-        }
-
-        const chatToggle = document.getElementById('chatbot-toggle');
-        const chatWindow = document.getElementById('chatbot-window');
-        const chatClose = document.getElementById('chatbot-close');
-        if (chatToggle && chatWindow) {
-            chatToggle.onclick = () => chatWindow.classList.toggle('hidden');
-            if (chatClose) chatClose.onclick = () => chatWindow.classList.add('hidden');
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
         }
     </script>
 </body>
