@@ -120,7 +120,7 @@
                     <span>Book Appointment</span>
                 </a>
                 <button id="mobile-toggle" class="lg:hidden p-2 text-[#1B4332] focus:outline-none">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
         </div>
@@ -135,48 +135,48 @@
         </div>
     </header>
 
-    <!-- SPLIT HERO: HOSPITAL EXTERIOR LEFT, STORY TEXT RIGHT -->
-    <section class="pt-36 pb-20 md:py-36 bg-[#FDFCF9]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-                
-                <!-- Exterior Image Left -->
-                <div class="lg:col-span-6 relative fade-up">
-                    <div class="rounded-3xl overflow-hidden shadow-2xl border border-[#D6D2C4]">
-                        <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1200&q=80" alt="Al-Shifa International Hospital Exterior DHA Lahore" class="w-full h-[480px] object-cover">
-                    </div>
-                </div>
-
-                <!-- Story Header Right -->
-                <div class="lg:col-span-6 space-y-6 fade-up">
-                    <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#1B4332]">OUR HERITAGE</span>
-                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#1B4332] leading-tight">
-                        A Legacy of Compassion & Medical Mastery
-                    </h1>
-                    <p class="text-[#4A4A4A] text-lg font-light leading-relaxed">
-                        Since 2008, Al-Shifa International Hospital has stood as a beacon of healing on Main Boulevard, DHA Phase 5, Lahore, combining foreign-trained faculty with warmth and empathy.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- OUR STORY WITH DROP CAP -->
-    <section class="py-20 bg-[#F5F0E8] border-y border-[#D6D2C4]">
-        <div class="max-w-4xl mx-auto px-6 space-y-8 fade-up">
-            <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#BC6C25]">THE AL-SHIFA JOURNEY</span>
-            <h2 class="font-serif text-3xl sm:text-4xl text-[#1B4332]">Founded on Principles of Patient First Care</h2>
-            <div class="text-[#4A4A4A] text-base leading-relaxed space-y-6 drop-cap">
-                Al-Shifa International Hospital was established in 2008 with a simple yet ambitious vision: to build a medical institute where patients in Pakistan receive world-class tertiary healthcare without having to travel abroad. Starting as a 50-bed cardiac specialty hospital in DHA Lahore, our founders prioritized clinical integrity, foreign-trained clinical leadership, and strict compliance with international safety protocols.
-            </div>
-            <p class="text-[#4A4A4A] text-base leading-relaxed font-light">
-                Today, Al-Shifa has expanded into a flagship 250+ bed tertiary care hospital equipped with 15+ medical departments, Level-III NICU facilities, digital catheterization labs, and Pakistan's premier robotic knee replacement suites.
+    <!-- 4. HERO WITH BACKGROUND IMAGE + DARK OVERLAY + WHITE TEXT -->
+    <section class="relative pt-36 pb-24 md:py-36 bg-[#1B4332] text-white overflow-hidden min-h-[450px]">
+        <div class="absolute inset-0 bg-[#081C15]/80 z-10"></div>
+        <img src="https://picsum.photos/id/305/1200/600" alt="Al-Shifa Hospital Hero" class="absolute inset-0 w-full h-full object-cover z-0" onerror="this.style.display='none'">
+        <div class="relative z-20 max-w-7xl mx-auto px-6 text-center space-y-6 fade-up">
+            <span class="text-[11px] font-semibold tracking-[0.4em] uppercase text-[#FEFAE0]">ESTABLISHED 2008 • LAHORE, PAKISTAN</span>
+            <h1 class="font-serif text-5xl md:text-7xl text-[#FEFAE0]">A Legacy of Healing & Compassion</h1>
+            <p class="text-[#D8F3DC] text-lg max-w-3xl mx-auto font-light leading-relaxed">
+                Dedicated to pioneering healthcare excellence, foreign-trained clinical expertise, and patient-centered compassionate care in DHA Phase 5, Lahore.
             </p>
         </div>
     </section>
 
-    <!-- VERTICAL GREEN TIMELINE -->
+    <!-- OUR STORY SECTION (TEXT + IMAGE SIDE BY SIDE) -->
+    <section class="py-24 bg-[#F5F0E8] border-b border-[#D6D2C4]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Story Text Left -->
+                <div class="lg:col-span-7 space-y-6 fade-up">
+                    <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#BC6C25]">THE AL-SHIFA STORY</span>
+                    <h2 class="font-serif text-4xl text-[#1B4332]">Founded on Principles of Patient First Care</h2>
+                    <div class="text-[#4A4A4A] text-base leading-relaxed space-y-4 drop-cap">
+                        Al-Shifa International Hospital was established in 2008 with a simple yet ambitious vision: to build a medical institute where patients in Pakistan receive world-class tertiary healthcare without having to travel abroad. Starting as a 50-bed cardiac specialty hospital in DHA Lahore, our founders prioritized clinical integrity, foreign-trained clinical leadership, and strict compliance with international safety protocols.
+                    </div>
+                    <p class="text-[#4A4A4A] text-base leading-relaxed font-light">
+                        Today, Al-Shifa has expanded into a flagship 250+ bed tertiary care hospital equipped with 15+ medical departments, Level-III NICU facilities, digital catheterization labs, and Pakistan's premier robotic knee replacement suites.
+                    </p>
+                </div>
+
+                <!-- Exterior Image Right -->
+                <div class="lg:col-span-5 relative fade-up">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border border-[#D6D2C4] bg-[#1B4332] min-h-[360px]">
+                        <img src="https://picsum.photos/id/287/1200/600" alt="Hospital Exterior DHA Lahore" class="w-full h-[400px] object-cover" onerror="this.style.display='none'">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE (2008, 2012, 2018, 2024) -->
     <section class="py-24 md:py-36 bg-[#FDFCF9]">
         <div class="max-w-7xl mx-auto px-6 space-y-16">
             <div class="text-center max-w-2xl mx-auto">
@@ -225,7 +225,7 @@
                     <div class="absolute left-3 sm:left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-[#1B4332] border-4 border-white shadow-md z-10"></div>
                     <div class="sm:w-5/12 pl-14 sm:pl-0 sm:text-left">
                         <span class="font-mono text-3xl font-bold text-[#BC6C25]">2024</span>
-                        <h4 class="font-serif text-xl font-bold text-[#1B4332] mt-1">Robotic Surgery Center</h4>
+                        <h4 class="font-serif text-xl font-bold text-[#1B4332] mt-1">Robotic Surgery Suite</h4>
                         <p class="text-xs text-[#7A7A7A] mt-1 leading-relaxed">Launched state-of-the-art robotic knee replacement and digital angiography suite.</p>
                     </div>
                 </div>
@@ -234,7 +234,7 @@
         </div>
     </section>
 
-    <!-- FACILITIES MOSAIC MASONRY GRID -->
+    <!-- FACILITIES GRID (6 IMAGES) -->
     <section class="py-24 bg-[#F5F0E8] border-y border-[#D6D2C4]">
         <div class="max-w-7xl mx-auto px-6 space-y-16">
             <div class="text-center max-w-3xl mx-auto">
@@ -242,56 +242,55 @@
                 <h2 class="font-serif text-4xl md:text-5xl text-[#1B4332] mt-2">Our Facilities Mosaic</h2>
             </div>
 
-            <!-- Masonry Grid (6 images) -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Image 1: OT (Large) -->
-                <div class="lg:col-span-2 rounded-3xl overflow-hidden shadow-md group relative min-h-[300px]">
-                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Operation Theatre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <!-- Image 1: Surgery Team -->
+                <div class="lg:col-span-2 rounded-3xl overflow-hidden shadow-md group relative min-h-[300px] bg-[#1B4332]">
+                    <img src="https://picsum.photos/id/433/800/500" alt="Operation Theatre" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/80 via-transparent to-transparent p-6 flex flex-col justify-end text-white">
                         <h3 class="font-serif text-2xl font-bold">Modular Operation Suites</h3>
                         <p class="text-xs text-[#D8F3DC] font-light mt-1">8 Cleanroom laminar airflow surgical theatres.</p>
                     </div>
                 </div>
 
-                <!-- Image 2: Lab (Small) -->
-                <div class="rounded-3xl overflow-hidden shadow-md group relative h-[300px]">
-                    <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=800&q=80" alt="Diagnostic Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <!-- Image 2: Lab -->
+                <div class="rounded-3xl overflow-hidden shadow-md group relative h-[300px] bg-[#1B4332]">
+                    <img src="https://picsum.photos/id/180/800/500" alt="Diagnostic Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/80 via-transparent to-transparent p-6 flex flex-col justify-end text-white">
                         <h3 class="font-serif text-xl font-bold">Robotic Diagnostic Lab</h3>
                         <p class="text-xs text-[#D8F3DC] font-light mt-1">Automated pathology & PCR diagnostics.</p>
                     </div>
                 </div>
 
-                <!-- Image 3: Patient Care (Small) -->
-                <div class="rounded-3xl overflow-hidden shadow-md group relative h-[300px]">
-                    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="Patient Care" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <!-- Image 3: Patient Care -->
+                <div class="rounded-3xl overflow-hidden shadow-md group relative h-[300px] bg-[#1B4332]">
+                    <img src="https://picsum.photos/id/177/800/500" alt="Patient Care Wards" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/80 via-transparent to-transparent p-6 flex flex-col justify-end text-white">
                         <h3 class="font-serif text-xl font-bold">Private Executive Wards</h3>
                         <p class="text-xs text-[#D8F3DC] font-light mt-1">Comfortable, patient-centered rooms.</p>
                     </div>
                 </div>
 
-                <!-- Image 4: Emergency Room (Large) -->
-                <div class="lg:col-span-2 rounded-3xl overflow-hidden shadow-md group relative min-h-[300px]">
-                    <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=800&q=80" alt="Emergency Room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <!-- Image 4: Emergency -->
+                <div class="lg:col-span-2 rounded-3xl overflow-hidden shadow-md group relative min-h-[300px] bg-[#1B4332]">
+                    <img src="https://picsum.photos/id/306/800/500" alt="Emergency Room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/80 via-transparent to-transparent p-6 flex flex-col justify-end text-white">
                         <h3 class="font-serif text-2xl font-bold">24/7 Emergency & Resuscitation</h3>
                         <p class="text-xs text-[#D8F3DC] font-light mt-1">Fully equipped level-1 trauma response bays.</p>
                     </div>
                 </div>
 
-                <!-- Image 5: MRI Machine (Small) -->
-                <div class="rounded-3xl overflow-hidden shadow-md group relative h-[300px]">
-                    <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=800&q=80" alt="MRI Scanner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <!-- Image 5: MRI -->
+                <div class="rounded-3xl overflow-hidden shadow-md group relative h-[300px] bg-[#1B4332]">
+                    <img src="https://picsum.photos/id/152/800/500" alt="MRI Scanner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/80 via-transparent to-transparent p-6 flex flex-col justify-end text-white">
                         <h3 class="font-serif text-xl font-bold">3T Siemens MRI Suite</h3>
                         <p class="text-xs text-[#D8F3DC] font-light mt-1">High-definition neuro & cardiac scans.</p>
                     </div>
                 </div>
 
-                <!-- Image 6: Corridor (Small) -->
-                <div class="lg:col-span-2 rounded-3xl overflow-hidden shadow-md group relative h-[300px]">
-                    <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1200&q=80" alt="Hospital Corridor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <!-- Image 6: Corridor -->
+                <div class="lg:col-span-2 rounded-3xl overflow-hidden shadow-md group relative h-[300px] bg-[#1B4332]">
+                    <img src="https://picsum.photos/id/247/1200/500" alt="Hospital Corridor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/80 via-transparent to-transparent p-6 flex flex-col justify-end text-white">
                         <h3 class="font-serif text-xl font-bold">Modern Hospital Complex</h3>
                         <p class="text-xs text-[#D8F3DC] font-light mt-1">Designed for patient comfort, sanitation, and calm.</p>
@@ -301,42 +300,76 @@
         </div>
     </section>
 
-    <!-- LEADERSHIP TEAM (3 HORIZONTAL TYPE B CARDS) -->
+    <!-- ACCREDITATIONS & LEADERSHIP -->
     <section class="py-24 md:py-36 bg-[#FDFCF9]">
         <div class="max-w-7xl mx-auto px-6 space-y-16">
             <div class="text-center max-w-3xl mx-auto">
-                <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#1B4332]">CLINICAL GOVERNANCE</span>
-                <h2 class="font-serif text-4xl md:text-5xl text-[#1B4332] mt-2">Executive Leadership</h2>
+                <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#1B4332]">QUALITY STANDARDS</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-[#1B4332] mt-2">Accreditations & Governance</h2>
             </div>
 
+            <!-- Accreditations Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Leader 1 -->
-                <div class="bg-white rounded-2xl border border-[#D6D2C4] p-6 shadow-sm flex items-center gap-4">
-                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" alt="Prof. Dr. Tariq Mahmood" class="w-20 h-20 rounded-full object-cover">
-                    <div>
-                        <h3 class="font-serif font-bold text-lg text-[#1B4332]">Dr. Tariq Mahmood</h3>
-                        <p class="text-xs text-[#BC6C25] font-semibold">Medical Director</p>
-                        <p class="text-[11px] text-[#7A7A7A] mt-1">25+ Yrs Clinical Governance</p>
+                <div class="p-8 bg-[#F5F0E8] border border-[#D6D2C4] rounded-3xl text-center space-y-3">
+                    <div class="w-12 h-12 bg-[#1B4332] text-white rounded-2xl flex items-center justify-center font-bold font-mono mx-auto">
+                        JCI
                     </div>
+                    <h3 class="font-serif font-bold text-xl text-[#1B4332]">JCI Accredited</h3>
+                    <p class="text-xs text-[#7A7A7A] leading-relaxed">Joint Commission International Gold Seal for clinical quality and patient safety.</p>
                 </div>
 
-                <!-- Leader 2 -->
-                <div class="bg-white rounded-2xl border border-[#D6D2C4] p-6 shadow-sm flex items-center gap-4">
-                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964ac31?auto=format&fit=crop&w=400&q=80" alt="Dr. Zainab Bilal" class="w-20 h-20 rounded-full object-cover">
-                    <div>
-                        <h3 class="font-serif font-bold text-lg text-[#1B4332]">Dr. Zainab Bilal</h3>
-                        <p class="text-xs text-[#BC6C25] font-semibold">Director Clinical Safety</p>
-                        <p class="text-[11px] text-[#7A7A7A] mt-1">JCI Quality Assurance Lead</p>
+                <div class="p-8 bg-[#F5F0E8] border border-[#D6D2C4] rounded-3xl text-center space-y-3">
+                    <div class="w-12 h-12 bg-[#BC6C25] text-white rounded-2xl flex items-center justify-center font-bold font-mono mx-auto">
+                        PMDC
                     </div>
+                    <h3 class="font-serif font-bold text-xl text-[#1B4332]">PMDC Registered</h3>
+                    <p class="text-xs text-[#7A7A7A] leading-relaxed">Pakistan Medical & Dental Council officially recognized teaching faculty hospital.</p>
                 </div>
 
-                <!-- Leader 3 -->
-                <div class="bg-white rounded-2xl border border-[#D6D2C4] p-6 shadow-sm flex items-center gap-4">
-                    <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80" alt="Dr. Hamza Raza" class="w-20 h-20 rounded-full object-cover">
-                    <div>
-                        <h3 class="font-serif font-bold text-lg text-[#1B4332]">Dr. Hamza Raza</h3>
-                        <p class="text-xs text-[#BC6C25] font-semibold">Chief Surgical Officer</p>
-                        <p class="text-[11px] text-[#7A7A7A] mt-1">Robotic Surgery Specialist</p>
+                <div class="p-8 bg-[#F5F0E8] border border-[#D6D2C4] rounded-3xl text-center space-y-3">
+                    <div class="w-12 h-12 bg-[#2D6A4F] text-white rounded-2xl flex items-center justify-center font-bold font-mono mx-auto">
+                        ISO
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-[#1B4332]">ISO 9001:2015</h3>
+                    <p class="text-xs text-[#7A7A7A] leading-relaxed">Certified Quality Management Systems across diagnostic and inpatient services.</p>
+                </div>
+            </div>
+
+            <!-- Leadership Row -->
+            <div class="pt-12 border-t border-[#D6D2C4]/60">
+                <h3 class="font-serif text-2xl font-bold text-[#1B4332] text-center mb-8">Executive Clinical Leadership</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl border border-[#D6D2C4] p-6 shadow-sm flex items-center gap-4 bg-[#F5F0E8]/40">
+                        <div class="w-20 h-20 rounded-full overflow-hidden bg-[#1B4332] shrink-0">
+                            <img src="https://picsum.photos/id/338/400/500" alt="Prof. Dr. Tariq Mahmood" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-lg text-[#1B4332]">Dr. Tariq Mahmood</h4>
+                            <p class="text-xs text-[#BC6C25] font-semibold">Medical Director</p>
+                            <p class="text-[11px] text-[#7A7A7A] mt-1">25+ Yrs Clinical Governance</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-[#D6D2C4] p-6 shadow-sm flex items-center gap-4 bg-[#F5F0E8]/40">
+                        <div class="w-20 h-20 rounded-full overflow-hidden bg-[#1B4332] shrink-0">
+                            <img src="https://picsum.photos/id/349/400/500" alt="Dr. Zainab Bilal" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-lg text-[#1B4332]">Dr. Zainab Bilal</h4>
+                            <p class="text-xs text-[#BC6C25] font-semibold">Director Clinical Safety</p>
+                            <p class="text-[11px] text-[#7A7A7A] mt-1">JCI Quality Assurance Lead</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-[#D6D2C4] p-6 shadow-sm flex items-center gap-4 bg-[#F5F0E8]/40">
+                        <div class="w-20 h-20 rounded-full overflow-hidden bg-[#1B4332] shrink-0">
+                            <img src="https://picsum.photos/id/350/400/500" alt="Dr. Hamza Raza" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-lg text-[#1B4332]">Dr. Hamza Raza</h4>
+                            <p class="text-xs text-[#BC6C25] font-semibold">Chief Surgical Officer</p>
+                            <p class="text-[11px] text-[#7A7A7A] mt-1">Robotic Surgery Specialist</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -349,9 +382,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#1B4332]">
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-[#D8F3DC] text-[#1B4332] rounded-xl flex items-center justify-center font-serif text-lg font-bold">
-                            AS
-                        </div>
+                        <div class="w-10 h-10 bg-[#D8F3DC] text-[#1B4332] rounded-xl flex items-center justify-center font-serif text-lg font-bold">AS</div>
                         <div>
                             <p class="font-serif font-bold text-white text-xl leading-none">Al-Shifa</p>
                             <p class="text-[10px] text-[#BC6C25] font-semibold tracking-widest uppercase mt-0.5">International Hospital</p>

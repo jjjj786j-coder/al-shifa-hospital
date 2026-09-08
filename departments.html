@@ -112,7 +112,7 @@
                     <span>Book Appointment</span>
                 </a>
                 <button id="mobile-toggle" class="lg:hidden p-2 text-[#1B4332] focus:outline-none">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
         </div>
@@ -127,10 +127,11 @@
         </div>
     </header>
 
-    <!-- HERO WITH OVERLAY IMAGE -->
-    <section class="relative pt-36 pb-24 md:py-36 bg-[#081C15] text-white overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Surgery Team in OT" class="absolute inset-0 w-full h-full object-cover opacity-25">
-        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center space-y-4 fade-up">
+    <!-- HERO WITH BACKGROUND IMAGE + OVERLAY -->
+    <section class="relative pt-36 pb-24 md:py-36 bg-[#081C15] text-white overflow-hidden min-h-[450px]">
+        <div class="absolute inset-0 bg-[#081C15]/80 z-10"></div>
+        <img src="https://picsum.photos/id/433/800/500" alt="Surgery Team Hero" class="absolute inset-0 w-full h-full object-cover z-0" onerror="this.style.display='none'">
+        <div class="relative z-20 max-w-7xl mx-auto px-6 text-center space-y-4 fade-up">
             <span class="text-[11px] font-semibold tracking-[0.4em] uppercase text-[#FEFAE0]">CENTERS OF CLINICAL EXCELLENCE</span>
             <h1 class="font-serif text-5xl md:text-7xl text-[#FEFAE0]">Multidisciplinary Medical Departments</h1>
             <p class="text-[#D8F3DC] text-lg max-w-3xl mx-auto font-light leading-relaxed">
@@ -266,7 +267,7 @@
         </div>
     </section>
 
-    <!-- OUR TECHNOLOGY SECTION (4 LARGE CARDS) -->
+    <!-- OUR TECHNOLOGY SECTION (4 IMAGE CARDS WITH FALLBACK BG & ONERROR) -->
     <section class="py-24 bg-[#F5F0E8] border-t border-[#D6D2C4]">
         <div class="max-w-7xl mx-auto px-6 space-y-16">
             <div class="text-center max-w-3xl mx-auto">
@@ -275,41 +276,56 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <!-- Tech 1 -->
-                <div class="rounded-3xl overflow-hidden shadow-lg border border-[#D6D2C4] bg-white group relative h-[360px]">
-                    <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=800&q=80" alt="3T MRI Machine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <!-- Tech 1: MRI -->
+                <div class="rounded-3xl overflow-hidden shadow-lg border border-[#D6D2C4] bg-[#1B4332] group relative h-[360px]">
+                    <img src="https://picsum.photos/id/152/800/500" alt="3T MRI Machine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/85 via-transparent to-transparent p-8 flex flex-col justify-end text-white">
                         <h3 class="font-serif text-2xl font-bold">3T Siemens Magnetom MRI</h3>
                         <p class="text-xs text-[#D8F3DC] font-light mt-1 max-w-md">Ultra-high resolution neuro, cardiac, and musculoskeletal imaging in under 15 minutes.</p>
                     </div>
                 </div>
 
-                <!-- Tech 2 -->
-                <div class="rounded-3xl overflow-hidden shadow-lg border border-[#D6D2C4] bg-white group relative h-[360px]">
-                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Robotic Surgery Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <!-- Tech 2: Surgery -->
+                <div class="rounded-3xl overflow-hidden shadow-lg border border-[#D6D2C4] bg-[#1B4332] group relative h-[360px]">
+                    <img src="https://picsum.photos/id/433/800/500" alt="Robotic Surgery Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/85 via-transparent to-transparent p-8 flex flex-col justify-end text-white">
                         <h3 class="font-serif text-2xl font-bold">Robotic Joint Replacement System</h3>
                         <p class="text-xs text-[#D8F3DC] font-light mt-1 max-w-md">Sub-millimeter accurate robotic arm assistance for knee and hip joint implants.</p>
                     </div>
                 </div>
 
-                <!-- Tech 3 -->
-                <div class="rounded-3xl overflow-hidden shadow-lg border border-[#D6D2C4] bg-white group relative h-[360px]">
-                    <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=800&q=80" alt="Digital Cath Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <!-- Tech 3: Lab -->
+                <div class="rounded-3xl overflow-hidden shadow-lg border border-[#D6D2C4] bg-[#1B4332] group relative h-[360px]">
+                    <img src="https://picsum.photos/id/180/800/500" alt="Digital Cath Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/85 via-transparent to-transparent p-8 flex flex-col justify-end text-white">
                         <h3 class="font-serif text-2xl font-bold">Bi-Plane Digital Angiography Cath Lab</h3>
                         <p class="text-xs text-[#D8F3DC] font-light mt-1 max-w-md">Low-dose digital 3D cardiac catheterization for instant emergency balloon angioplasty.</p>
                     </div>
                 </div>
 
-                <!-- Tech 4 -->
-                <div class="rounded-3xl overflow-hidden shadow-lg border border-[#D6D2C4] bg-white group relative h-[360px]">
-                    <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=800&q=80" alt="Digital CT Scanner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <!-- Tech 4: Emergency -->
+                <div class="rounded-3xl overflow-hidden shadow-lg border border-[#D6D2C4] bg-[#1B4332] group relative h-[360px]">
+                    <img src="https://picsum.photos/id/306/800/500" alt="Digital CT Scanner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'">
                     <div class="absolute inset-0 bg-gradient-to-t from-[#081C15]/85 via-transparent to-transparent p-8 flex flex-col justify-end text-white">
                         <h3 class="font-serif text-2xl font-bold">128-Slice Low-Dose CT Scanner</h3>
                         <p class="text-xs text-[#D8F3DC] font-light mt-1 max-w-md">Whole-body trauma and cardiac angiography scans completed in under 5 seconds.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="bg-[#1B4332] text-white py-20">
+        <div class="max-w-7xl mx-auto px-6 text-center space-y-6">
+            <h2 class="font-serif text-4xl md:text-6xl text-[#FEFAE0]">Consult Our Medical Specialists Today</h2>
+            <p class="text-[#D8F3DC] text-base md:text-lg max-w-2xl mx-auto font-light">
+                Select your department and schedule a direct consultation with Lahore's leading consultants.
+            </p>
+            <div class="pt-2">
+                <a href="contact.html" class="bg-white text-[#1B4332] hover:bg-[#FEFAE0] font-bold px-8 py-4 rounded-full shadow-lg transition-all text-sm inline-flex items-center gap-2">
+                    <span>Book Appointment Online</span>
+                </a>
             </div>
         </div>
     </section>
