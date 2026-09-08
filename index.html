@@ -3,32 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Shifa International Hospital | World-Class Healthcare Lahore</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Al-Shifa International Hospital | Where Healing Begins With Trust</title>
+    
+    <!-- Google Fonts: DM Serif Display & DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"DM Serif Display"', 'serif'],
+                        sans: ['"DM Sans"', 'sans-serif'],
+                        mono: ['Courier New', 'monospace'],
                     },
                     colors: {
-                        primary: {
-                            DEFAULT: '#0369A1',
-                            hover: '#075985',
-                            soft: '#E0F2FE',
+                        forest: {
+                            DEFAULT: '#1B4332',
+                            light: '#2D6A4F',
+                            soft: '#D8F3DC',
+                            dark: '#081C15',
                         },
-                        accent: {
-                            DEFAULT: '#0D9488',
-                            hover: '#0F766E',
-                            soft: '#CCFBF1',
+                        amberAccent: {
+                            DEFAULT: '#BC6C25',
+                            soft: '#FEFAE0',
+                            light: '#DDA15E',
                         },
-                        emergency: '#DC2626',
-                        bgAlt: '#F0F9FF',
+                        warmBg: '#FDFCF9',
+                        warmAlt: '#F5F0E8',
+                        warmBorder: '#D6D2C4',
+                        emergencyRed: '#C1121F',
                     }
                 }
             }
@@ -43,40 +54,48 @@
         .pulse-red {
             animation: pulse-dot 1.5s infinite ease-in-out;
         }
-        @media (prefers-reduced-motion: reduce) {
-            .pulse-red, .transition-all, .animate-bounce {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-        .fade-in-up {
+        .fade-up {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .fade-in-up.visible {
+        .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .pulse-red, .fade-up, .parallax-bg {
+                animation: none !important;
+                transition: none !important;
+                background-attachment: scroll !important;
+            }
+        }
     </style>
 </head>
-<body class="font-sans text-slate-800 bg-white antialiased selection:bg-sky-100 selection:text-sky-900">
+<body class="font-sans text-[#1A1A1A] bg-[#FDFCF9] antialiased selection:bg-[#D8F3DC] selection:text-[#1B4332]">
 
-    <!-- 1. EMERGENCY TOP BAR (Key Feature) -->
-    <div id="emergency-bar" class="bg-red-600 text-white py-2.5 px-4 text-xs md:text-sm font-medium sticky top-0 z-50 shadow-md">
+    <!-- a) EMERGENCY BAR (Top, thin, red bg) -->
+    <div id="emergency-bar" class="bg-[#C1121F] text-white py-2.5 px-4 text-xs sm:text-sm font-medium sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
             <div class="flex items-center gap-2.5 flex-wrap">
                 <span class="inline-flex items-center justify-center w-3 h-3 bg-white rounded-full relative">
-                    <span class="w-2.5 h-2.5 bg-red-600 rounded-full pulse-red"></span>
+                    <span class="w-2.5 h-2.5 bg-[#C1121F] rounded-full pulse-red"></span>
                 </span>
-                <span class="font-bold uppercase tracking-wider text-red-100 bg-red-800/60 px-2 py-0.5 rounded">Emergency</span>
-                <span class="hidden sm:inline font-normal opacity-90">24/7 Trauma & Ambulance Services Available:</span>
+                <span class="font-bold uppercase tracking-widest text-[11px] bg-red-900/60 px-2 py-0.5 rounded text-red-100">Emergency</span>
+                <span class="font-normal opacity-90">Call NOW:</span>
                 <a href="tel:+924235771122" class="font-bold underline hover:text-red-100 transition-colors tracking-wide">
                     +92 42 35771122
                 </a>
+                <span class="hidden md:inline text-red-200">| 24/7 Ambulance & Trauma Available</span>
             </div>
             <div class="flex items-center gap-3">
-                <a href="https://wa.me/923001234567?text=Hi%2C%20I%20have%20an%20emergency" target="_blank" class="hidden md:inline-flex items-center gap-1 bg-red-700 hover:bg-red-800 px-3 py-1 rounded text-xs transition-colors">
+                <a href="https://wa.me/923001234567?text=Appointment%20chahiye" target="_blank" class="hidden sm:inline-flex items-center gap-1 bg-red-800 hover:bg-red-900 px-3 py-1 rounded text-xs transition-colors">
                     <span>WhatsApp Emergency</span>
                 </a>
                 <button id="close-emergency" class="text-white/80 hover:text-white p-1 rounded-md transition-colors" aria-label="Close Banner">
@@ -86,657 +105,687 @@
         </div>
     </div>
 
-    <!-- 2. NAVBAR -->
-    <header id="main-header" class="bg-white/95 backdrop-blur-md sticky top-[37px] z-40 border-b border-slate-200 transition-shadow duration-300">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <!-- b) NAVBAR (Transparent initially, turns white on scroll) -->
+    <header id="main-nav" class="fixed top-[37px] inset-x-0 z-40 transition-all duration-500 py-5">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
             <!-- Logo -->
             <a href="index.html" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 bg-gradient-to-br from-sky-600 to-sky-800 rounded-xl flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0016.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 002 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7z"></path>
-                    </svg>
+                <div class="w-10 h-10 bg-[#1B4332] text-[#FEFAE0] rounded-xl flex items-center justify-center font-serif text-xl font-bold shadow-md group-hover:scale-105 transition-transform">
+                    AS
                 </div>
                 <div>
-                    <span class="font-heading font-extrabold text-xl md:text-2xl text-slate-900 leading-none block tracking-tight">Al-Shifa</span>
-                    <span class="text-[11px] font-semibold text-sky-700 tracking-wider uppercase block mt-0.5">International Hospital</span>
+                    <span class="font-serif font-bold text-2xl text-[#1B4332] leading-none block tracking-tight">Al-Shifa</span>
+                    <span class="text-[10px] font-semibold text-[#BC6C25] tracking-[0.25em] uppercase block mt-0.5">International Hospital</span>
                 </div>
             </a>
 
-            <!-- Navigation Center -->
-            <nav class="hidden lg:flex items-center gap-8 font-medium text-slate-700 text-sm">
-                <a href="index.html" class="text-sky-700 font-semibold border-b-2 border-sky-600 pb-1">Home</a>
-                <a href="about.html" class="hover:text-sky-700 transition-colors pb-1">About Us</a>
-                <a href="departments.html" class="hover:text-sky-700 transition-colors pb-1">Departments</a>
-                <a href="doctors.html" class="hover:text-sky-700 transition-colors pb-1">Doctors</a>
-                <a href="contact.html" class="hover:text-sky-700 transition-colors pb-1">Contact</a>
+            <!-- Links Center -->
+            <nav class="hidden lg:flex items-center gap-9 font-medium text-sm text-[#4A4A4A]">
+                <a href="index.html" class="text-[#1B4332] font-semibold border-b-2 border-[#1B4332] pb-1">Home</a>
+                <a href="about.html" class="hover:text-[#1B4332] transition-colors pb-1">About Us</a>
+                <a href="departments.html" class="hover:text-[#1B4332] transition-colors pb-1">Departments</a>
+                <a href="doctors.html" class="hover:text-[#1B4332] transition-colors pb-1">Doctors</a>
+                <a href="contact.html" class="hover:text-[#1B4332] transition-colors pb-1">Contact</a>
             </nav>
 
-            <!-- Right CTA & Mobile Toggle -->
+            <!-- Right CTA Button -->
             <div class="flex items-center gap-4">
-                <a href="contact.html" class="hidden sm:inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all text-sm">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <a href="contact.html" class="hidden sm:inline-flex items-center justify-center gap-2 bg-[#1B4332] hover:bg-[#2D6A4F] text-white font-semibold px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all text-sm">
                     <span>Book Appointment</span>
                 </a>
-                <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-700 hover:text-sky-700 focus:outline-none" aria-label="Toggle Navigation">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <button id="mobile-toggle" class="lg:hidden p-2 text-[#1B4332] focus:outline-none" aria-label="Toggle Mobile Navigation">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 font-medium text-slate-700">
-            <a href="index.html" class="block text-sky-700 font-semibold py-2">Home</a>
-            <a href="about.html" class="block hover:text-sky-700 py-2">About Us</a>
-            <a href="departments.html" class="block hover:text-sky-700 py-2">Departments</a>
-            <a href="doctors.html" class="block hover:text-sky-700 py-2">Doctors</a>
-            <a href="contact.html" class="block hover:text-sky-700 py-2">Contact</a>
-            <a href="contact.html" class="block w-full text-center bg-teal-600 text-white py-2.5 rounded-xl font-semibold mt-2">Book Appointment</a>
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#FDFCF9] border-b border-[#D6D2C4] px-6 py-6 space-y-4 font-medium text-[#1A1A1A] shadow-xl">
+            <a href="index.html" class="block text-[#1B4332] font-bold py-1 text-lg">Home</a>
+            <a href="about.html" class="block hover:text-[#1B4332] py-1 text-lg">About Us</a>
+            <a href="departments.html" class="block hover:text-[#1B4332] py-1 text-lg">Departments</a>
+            <a href="doctors.html" class="block hover:text-[#1B4332] py-1 text-lg">Doctors</a>
+            <a href="contact.html" class="block hover:text-[#1B4332] py-1 text-lg">Contact</a>
+            <a href="contact.html" class="block w-full text-center bg-[#1B4332] text-white py-3 rounded-full font-bold mt-4">Book Appointment</a>
         </div>
     </header>
 
-    <!-- 3. HERO SECTION -->
-    <section class="relative bg-gradient-to-b from-sky-50/60 via-white to-white py-16 md:py-24 overflow-hidden">
+    <!-- c) HERO (SPLIT LAYOUT) -->
+    <section class="pt-36 pb-20 md:py-36 bg-[#FDFCF9] overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center min-h-[75vh]">
+                
                 <!-- Left Content -->
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 bg-sky-100 border border-sky-200 rounded-full px-3.5 py-1.5 text-xs font-semibold text-sky-800">
-                        <span class="w-2 h-2 rounded-full bg-sky-600"></span>
-                        <span>JCI Accredited & PMDC Registered Hospital</span>
+                <div class="lg:col-span-7 space-y-8 fade-up">
+                    <div class="inline-flex items-center gap-2 bg-[#FEFAE0] border border-[#BC6C25]/30 rounded-full px-4 py-1.5">
+                        <span class="w-2 h-2 rounded-full bg-[#BC6C25]"></span>
+                        <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#BC6C25]">DHA PHASE 5, LAHORE</span>
                     </div>
 
-                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-[1.15]">
-                        Compassionate Care.<br>
-                        <span class="text-sky-700">World-Class</span> Treatment.
+                    <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-normal text-[#1B4332] leading-[1.08] tracking-tight">
+                        Where Healing Begins With Trust
                     </h1>
 
-                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
-                        Al-Shifa International Hospital brings 16+ years of medical excellence to DHA Lahore. Equipped with 120+ senior specialists, state-of-the-art robotic surgery, and a 24/7 dedicated Emergency & Trauma Center.
+                    <p class="text-[#4A4A4A] text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+                        16 years of compassionate care, 120+ senior specialists, and JCI-accredited facilities — all dedicated to your family's health under one roof.
                     </p>
 
                     <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-                        <a href="contact.html" class="inline-flex items-center justify-center gap-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-base px-7 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                        <a href="contact.html" class="inline-flex items-center justify-center gap-3 bg-[#1B4332] hover:bg-[#2D6A4F] text-white font-semibold text-base px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all">
                             <span>Book Appointment</span>
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
-                        <a href="tel:+924235771122" class="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-slate-50 text-red-600 border-2 border-red-200 hover:border-red-300 font-bold text-base px-7 py-3.5 rounded-xl transition-all">
-                            <svg class="w-5 h-5 text-red-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                            <span>24/7 Emergency Helpline</span>
+                        <a href="tel:+924235771122" class="inline-flex items-center justify-center gap-2.5 bg-transparent hover:bg-red-50 text-[#C1121F] border-2 border-[#C1121F]/40 font-bold text-base px-8 py-4 rounded-full transition-all">
+                            <svg class="w-5 h-5 text-[#C1121F] pulse-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            <span>Call Emergency</span>
                         </a>
                     </div>
 
-                    <!-- Trust Accreditation Seals -->
-                    <div class="pt-6 border-t border-slate-200/80">
-                        <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Recognized & Accredited By</p>
-                        <div class="flex items-center gap-6 flex-wrap">
-                            <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm text-xs font-bold text-slate-700">
-                                <span class="text-sky-600">✓</span> JCI Accredited
-                            </div>
-                            <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm text-xs font-bold text-slate-700">
-                                <span class="text-sky-600">✓</span> PMDC Registered
-                            </div>
-                            <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm text-xs font-bold text-slate-700">
-                                <span class="text-sky-600">✓</span> ISO 9001:2015
-                            </div>
-                        </div>
+                    <!-- Trust Row -->
+                    <div class="pt-6 border-t border-[#D6D2C4]/60 flex items-center gap-8 text-xs font-semibold text-[#1B4332] tracking-wider uppercase">
+                        <span>JCI Accredited ✓</span>
+                        <span>PMDC Registered ✓</span>
+                        <span>ISO 9001 ✓</span>
                     </div>
                 </div>
 
-                <!-- Right Visual -->
-                <div class="lg:col-span-5 relative">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-100 group">
-                        <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=1000&q=80" alt="Al-Shifa International Hospital Lahore Building" class="w-full h-[460px] object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+                <!-- Right Visual Image -->
+                <div class="lg:col-span-5 relative fade-up">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#1B4332]/10 border border-[#D6D2C4] bg-white group">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80" alt="Senior Medical Specialist at Al-Shifa Hospital" class="w-full h-[520px] object-cover group-hover:scale-105 transition-transform duration-700">
                         
-                        <!-- Floating Badge 1 -->
-                        <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-xl shadow-lg border border-slate-100 flex items-center gap-3">
-                            <div class="w-9 h-9 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center font-bold">
-                                4.9★
-                            </div>
-                            <div>
-                                <p class="text-xs font-bold text-slate-900">Top Rated Care</p>
-                                <p class="text-[11px] text-slate-500">Google Verified Reviews</p>
-                            </div>
-                        </div>
-
-                        <!-- Floating Badge 2 -->
-                        <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-lg border border-slate-100 flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-red-100 text-red-600 rounded-xl flex items-center justify-center">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold text-slate-900">Location</p>
-                                    <p class="text-xs text-slate-600">Main Boulevard, DHA Phase 5, Lahore</p>
-                                </div>
-                            </div>
+                        <!-- Floating Overlapping Badge -->
+                        <div class="absolute -bottom-2 -left-2 sm:bottom-6 sm:-left-6 bg-[#1B4332] text-white p-6 rounded-3xl shadow-2xl max-w-xs border border-[#FEFAE0]/30">
+                            <p class="font-mono text-3xl font-bold text-[#FEFAE0]">50,000+</p>
+                            <p class="text-xs text-[#D8F3DC] font-light mt-1">Patients Treated Annually with 99.4% Clinical Excellence</p>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- 4. STATS COUNTER ROW -->
-    <section class="bg-sky-900 text-white py-12">
+    <!-- d) STATS (ASYMMETRIC LAYOUT) -->
+    <section class="py-24 bg-[#F5F0E8] border-y border-[#D6D2C4]">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center" id="stats-container">
-                <div class="space-y-1">
-                    <p class="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-sky-200 stat-number" data-target="50000" data-suffix="+">0</p>
-                    <p class="text-xs sm:text-sm font-medium text-sky-100/80 uppercase tracking-wider">Patients Annually</p>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Col 4: Giant 16 Years -->
+                <div class="lg:col-span-4 flex items-center gap-6 border-b lg:border-b-0 lg:border-r border-[#D6D2C4] pb-8 lg:pb-0 lg:pr-12">
+                    <span class="font-mono text-7xl sm:text-8xl font-bold text-[#1B4332] leading-none">16</span>
+                    <div>
+                        <span class="font-serif text-2xl font-bold text-[#1B4332] block leading-tight">Years of Clinical Excellence</span>
+                        <span class="text-xs text-[#7A7A7A] mt-1 block">Serving Lahore & Pakistan since 2008</span>
+                    </div>
                 </div>
-                <div class="space-y-1">
-                    <p class="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-sky-200 stat-number" data-target="120" data-suffix="+">0</p>
-                    <p class="text-xs sm:text-sm font-medium text-sky-100/80 uppercase tracking-wider">Specialist Doctors</p>
+
+                <!-- Right Col 8: 3 Stat Blocks -->
+                <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left">
+                    <div class="space-y-2">
+                        <p class="font-mono text-4xl sm:text-5xl font-bold text-[#1B4332] stat-counter" data-target="50000" data-suffix="+">0</p>
+                        <p class="font-serif text-lg font-bold text-[#1A1A1A]">Patients Treated</p>
+                        <p class="text-xs text-[#7A7A7A] leading-relaxed">Trusted medical care delivered annually across inpatient and OPD services.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <p class="font-mono text-4xl sm:text-5xl font-bold text-[#1B4332] stat-counter" data-target="120" data-suffix="+">0</p>
+                        <p class="font-serif text-lg font-bold text-[#1A1A1A]">Specialist Doctors</p>
+                        <p class="text-xs text-[#7A7A7A] leading-relaxed">Foreign-trained professors, surgeons, and medical consultants.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <p class="font-mono text-4xl sm:text-5xl font-bold text-[#1B4332] stat-counter" data-target="15" data-suffix="+">0</p>
+                        <p class="font-serif text-lg font-bold text-[#1A1A1A]">Departments</p>
+                        <p class="text-xs text-[#7A7A7A] leading-relaxed">Multidisciplinary centers of excellence covering complete tertiary care.</p>
+                    </div>
                 </div>
-                <div class="space-y-1">
-                    <p class="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-sky-200 stat-number" data-target="15" data-suffix="+">0</p>
-                    <p class="text-xs sm:text-sm font-medium text-sky-100/80 uppercase tracking-wider">Medical Departments</p>
-                </div>
-                <div class="space-y-1">
-                    <p class="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-sky-200 stat-number" data-target="16" data-suffix=" Yrs">0</p>
-                    <p class="text-xs sm:text-sm font-medium text-sky-100/80 uppercase tracking-wider">Excellence</p>
-                </div>
-                <div class="col-span-2 md:col-span-1 space-y-1">
-                    <p class="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-sky-200 stat-number" data-target="4.9" data-is-decimal="true" data-suffix="★">0</p>
-                    <p class="text-xs sm:text-sm font-medium text-sky-100/80 uppercase tracking-wider">Patient Satisfaction</p>
-                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- 5. FEATURED DEPARTMENTS -->
-    <section class="py-20 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+    <!-- e) DEPARTMENTS (BENTO GRID — NOT EQUAL CARDS) -->
+    <section class="py-24 md:py-36 bg-[#FDFCF9]">
+        <div class="max-w-7xl mx-auto px-6 space-y-16">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div>
-                    <span class="text-sm font-semibold text-sky-700 uppercase tracking-wider">Specialized Healthcare</span>
-                    <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-slate-900 mt-2">Center of Excellence Departments</h2>
+                    <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#1B4332]">OUR SPECIALTIES</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-[#1B4332] mt-2">World-Class Departments</h2>
                 </div>
-                <a href="departments.html" class="inline-flex items-center gap-2 text-sky-700 hover:text-sky-800 font-bold text-sm group">
-                    <span>View All 8 Departments</span>
+                <a href="departments.html" class="inline-flex items-center gap-2 text-[#BC6C25] hover:text-[#1B4332] font-bold text-sm group transition-colors">
+                    <span>Explore All 8 Departments</span>
                     <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Dept 1: Cardiology -->
-                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all group flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+            <!-- Bento Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Card 1: Cardiology (LARGE - col-span-2 row-span-2) -->
+                <div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden shadow-lg border-l-8 border-[#1B4332] bg-white group min-h-[380px] flex flex-col justify-between p-8 sm:p-12">
+                    <img src="https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=800&q=80" alt="Cardiology Surgery Team" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-20">
+                    <div class="relative z-10 space-y-3">
+                        <div class="w-12 h-12 bg-[#1B4332] text-white rounded-2xl flex items-center justify-center text-2xl font-bold">
                             🫀
                         </div>
-                        <h3 class="font-heading font-bold text-xl text-slate-900 group-hover:text-sky-700 transition-colors">Cardiology</h3>
-                        <p class="text-xs font-semibold text-slate-400 mt-0.5 mb-3">Heart & Vascular Care</p>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Complete cardiac diagnostics, angiography, angioplasty, open-heart surgery, and 24/7 Cardiac Emergency.</p>
+                        <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#BC6C25]">CENTER OF EXCELLENCE</span>
+                        <h3 class="font-serif text-3xl sm:text-4xl text-[#1B4332]">Cardiology & Heart Center</h3>
+                        <p class="text-[#4A4A4A] text-sm md:text-base max-w-lg leading-relaxed">
+                            24/7 Primary PCI catheterization lab, open-heart bypass surgery, 3D echocardiography, and dedicated Cardiac Intensive Care (CCU).
+                        </p>
                     </div>
-                    <a href="contact.html?dept=cardiology" class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 hover:text-teal-800 pt-2 border-t border-slate-100">
-                        <span>Book in Cardiology</span>
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </a>
+                    <div class="relative z-10 pt-6">
+                        <a href="contact.html?dept=cardiology" class="inline-flex items-center gap-2 bg-[#1B4332] hover:bg-[#2D6A4F] text-white px-6 py-3 rounded-full text-xs font-bold transition-all shadow-md">
+                            <span>Book in Cardiology</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Dept 2: Neurology -->
-                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all group flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 bg-sky-50 text-sky-600 rounded-2xl flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
-                            🧠
-                        </div>
-                        <h3 class="font-heading font-bold text-xl text-slate-900 group-hover:text-sky-700 transition-colors">Neurology</h3>
-                        <p class="text-xs font-semibold text-slate-400 mt-0.5 mb-3">Brain & Spine Center</p>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Advanced neurosurgery, stroke management, spine care, EEG, EMG, and comprehensive neurological rehabilitation.</p>
+                <!-- Card 2: Neurology (Type A) -->
+                <div class="border-l-4 border-[#1B4332] bg-white p-6 rounded-r-2xl shadow-sm hover:shadow-lg transition-all hover:scale-[1.02] duration-300 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="text-2xl">🧠</span>
+                        <h3 class="font-serif text-xl text-[#1B4332]">Neurology & Brain Institute</h3>
+                        <p class="text-xs text-[#7A7A7A] leading-relaxed">Stroke intervention, neurosurgery, lumbar disc spine surgery, and digital EEG/EMG.</p>
                     </div>
-                    <a href="contact.html?dept=neurology" class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 hover:text-teal-800 pt-2 border-t border-slate-100">
-                        <span>Book in Neurology</span>
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </a>
+                    <a href="contact.html?dept=neurology" class="mt-4 text-xs font-bold text-[#BC6C25] hover:text-[#1B4332] transition-colors">Book Consultation →</a>
                 </div>
 
-                <!-- Dept 3: Orthopedics -->
-                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all group flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
-                            🦴
-                        </div>
-                        <h3 class="font-heading font-bold text-xl text-slate-900 group-hover:text-sky-700 transition-colors">Orthopedics</h3>
-                        <p class="text-xs font-semibold text-slate-400 mt-0.5 mb-3">Joint Replacement & Sports Medicine</p>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Knee & hip replacements, arthroscopic surgery, trauma reconstruction, and specialized sports injury treatment.</p>
+                <!-- Card 3: Orthopedics (Type A) -->
+                <div class="border-l-4 border-[#1B4332] bg-white p-6 rounded-r-2xl shadow-sm hover:shadow-lg transition-all hover:scale-[1.02] duration-300 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="text-2xl">🦴</span>
+                        <h3 class="font-serif text-xl text-[#1B4332]">Orthopedics & Joint Replacement</h3>
+                        <p class="text-xs text-[#7A7A7A] leading-relaxed">Robotic total knee & hip replacement, arthroscopic repair, and sports medicine.</p>
                     </div>
-                    <a href="contact.html?dept=orthopedics" class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 hover:text-teal-800 pt-2 border-t border-slate-100">
-                        <span>Book in Orthopedics</span>
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </a>
+                    <a href="contact.html?dept=orthopedics" class="mt-4 text-xs font-bold text-[#BC6C25] hover:text-[#1B4332] transition-colors">Book Consultation →</a>
                 </div>
 
-                <!-- Dept 4: Pediatrics & NICU -->
-                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all group flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
-                            👶
-                        </div>
-                        <h3 class="font-heading font-bold text-xl text-slate-900 group-hover:text-sky-700 transition-colors">Pediatrics & NICU</h3>
-                        <p class="text-xs font-semibold text-slate-400 mt-0.5 mb-3">Child & Neonatal Healthcare</p>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">24/7 Level-III Neonatal Intensive Care Unit (NICU), pediatric surgery, vaccination center, and child emergency care.</p>
+                <!-- Card 4: Pediatrics (Type A) -->
+                <div class="border-l-4 border-[#1B4332] bg-white p-6 rounded-r-2xl shadow-sm hover:shadow-lg transition-all hover:scale-[1.02] duration-300 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="text-2xl">👶</span>
+                        <h3 class="font-serif text-xl text-[#1B4332]">Pediatrics & NICU</h3>
+                        <p class="text-xs text-[#7A7A7A] leading-relaxed">24/7 Level-III Neonatal ICU, pediatric surgery, and child vaccination center.</p>
                     </div>
-                    <a href="contact.html?dept=pediatrics" class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 hover:text-teal-800 pt-2 border-t border-slate-100">
-                        <span>Book in Pediatrics</span>
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </a>
+                    <a href="contact.html?dept=pediatrics" class="mt-4 text-xs font-bold text-[#BC6C25] hover:text-[#1B4332] transition-colors">Book Consultation →</a>
                 </div>
+
+                <!-- Card 5: Ophthalmology (Type A) -->
+                <div class="border-l-4 border-[#1B4332] bg-white p-6 rounded-r-2xl shadow-sm hover:shadow-lg transition-all hover:scale-[1.02] duration-300 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="text-2xl">👁️</span>
+                        <h3 class="font-serif text-xl text-[#1B4332]">Ophthalmology & Laser Eye</h3>
+                        <p class="text-xs text-[#7A7A7A] leading-relaxed">Femto-LASIK vision correction and stitchless phaco cataract surgery.</p>
+                    </div>
+                    <a href="contact.html?dept=ophthalmology" class="mt-4 text-xs font-bold text-[#BC6C25] hover:text-[#1B4332] transition-colors">Book Consultation →</a>
+                </div>
+
+                <!-- Card 6: Emergency (Special Red Style) -->
+                <div class="border-l-4 border-[#C1121F] bg-red-50/60 p-6 rounded-r-2xl shadow-sm hover:shadow-lg transition-all flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="text-2xl">🚨</span>
+                        <h3 class="font-serif text-xl text-[#C1121F]">Emergency & Trauma (24/7)</h3>
+                        <p class="text-xs text-[#7A7A7A] leading-relaxed">Immediate resuscitation, trauma surgery, and 24/7 cardiac ambulances.</p>
+                    </div>
+                    <a href="tel:+924235771122" class="mt-4 text-xs font-bold text-[#C1121F] hover:underline">Call: +92 42 35771122 →</a>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- 6. FEATURED DOCTORS SECTION -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-14">
-                <span class="text-sm font-semibold text-sky-700 uppercase tracking-wider">Expert Medical Team</span>
-                <h2 class="font-heading font-extrabold text-3xl md:text-5xl text-slate-900 mt-2">Meet Our Senior Consultants</h2>
-                <p class="text-slate-600 text-base mt-4">Renowned foreign-trained specialists providing evidence-based compassionate care.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Doctor 1 -->
-                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="relative h-64 overflow-hidden bg-slate-100">
-                            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80" alt="Prof. Dr. Tariq Mahmood" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 right-3 bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm" data-availability="available">
-                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                                <span>Available Today</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <span class="text-xs font-bold uppercase tracking-wider text-sky-700">Cardiology</span>
-                            <h3 class="font-heading font-bold text-xl text-slate-900 mt-1">Prof. Dr. Tariq Mahmood</h3>
-                            <p class="text-xs text-slate-500 font-medium mt-0.5">MBBS, FCPS, FRCP London</p>
-                            <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-600 space-y-1.5">
-                                <p class="flex items-center gap-2">
-                                    <span class="font-semibold text-slate-800">Experience:</span> 25+ Years (10,000+ Surgeries)
-                                </p>
-                                <p class="flex items-center gap-2">
-                                    <span class="font-semibold text-slate-800">Timings:</span> Mon, Wed, Fri (9 AM – 2 PM)
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="contact.html?doctor=Prof.+Dr.+Tariq+Mahmood" class="w-full inline-flex items-center justify-center bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 rounded-xl transition-colors text-sm">
-                            Book Appointment
-                        </a>
-                    </div>
+    <!-- f) DOCTORS PREVIEW (HORIZONTAL CARDS — NOT VERTICAL) -->
+    <section class="py-24 md:py-36 bg-[#F5F0E8] border-t border-[#D6D2C4]">
+        <div class="max-w-7xl mx-auto px-6 space-y-16">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#1B4332]">MEET OUR SPECIALISTS</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-[#1B4332] mt-2">Senior Medical Consultants</h2>
                 </div>
-
-                <!-- Doctor 2 -->
-                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="relative h-64 overflow-hidden bg-slate-100">
-                            <img src="https://images.unsplash.com/photo-1594824813566-7885a6a21fb2?auto=format&fit=crop&w=600&q=80" alt="Dr. Zainab Bilal" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 right-3 bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm" data-availability="available">
-                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                                <span>Available Today</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <span class="text-xs font-bold uppercase tracking-wider text-sky-700">Neurology</span>
-                            <h3 class="font-heading font-bold text-xl text-slate-900 mt-1">Dr. Zainab Bilal</h3>
-                            <p class="text-xs text-slate-500 font-medium mt-0.5">MBBS, FCPS Neurology</p>
-                            <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-600 space-y-1.5">
-                                <p class="flex items-center gap-2">
-                                    <span class="font-semibold text-slate-800">Experience:</span> 12+ Years
-                                </p>
-                                <p class="flex items-center gap-2">
-                                    <span class="font-semibold text-slate-800">Timings:</span> Tue, Thu, Sat (10 AM – 4 PM)
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="contact.html?doctor=Dr.+Zainab+Bilal" class="w-full inline-flex items-center justify-center bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 rounded-xl transition-colors text-sm">
-                            Book Appointment
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Doctor 3 -->
-                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
-                    <div>
-                        <div class="relative h-64 overflow-hidden bg-slate-100">
-                            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80" alt="Dr. Hamza Raza" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-3 right-3 bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm" data-availability="available">
-                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                                <span>Available Today</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <span class="text-xs font-bold uppercase tracking-wider text-sky-700">Orthopedics</span>
-                            <h3 class="font-heading font-bold text-xl text-slate-900 mt-1">Dr. Hamza Raza</h3>
-                            <p class="text-xs text-slate-500 font-medium mt-0.5">MBBS, MS Ortho, Fellowship USA</p>
-                            <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-600 space-y-1.5">
-                                <p class="flex items-center gap-2">
-                                    <span class="font-semibold text-slate-800">Experience:</span> 15+ Years
-                                </p>
-                                <p class="flex items-center gap-2">
-                                    <span class="font-semibold text-slate-800">Timings:</span> Mon–Fri (8 AM – 1 PM)
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="contact.html?doctor=Dr.+Hamza+Raza" class="w-full inline-flex items-center justify-center bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 rounded-xl transition-colors text-sm">
-                            Book Appointment
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-10">
-                <a href="doctors.html" class="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-6 py-3 rounded-xl transition-colors text-sm">
-                    <span>View All Consultants</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                <a href="doctors.html" class="inline-flex items-center gap-2 text-[#1B4332] hover:text-[#BC6C25] font-bold text-sm transition-colors">
+                    <span>View All Consultants →</span>
                 </a>
             </div>
+
+            <!-- 3 Horizontal Doctor Cards (Type B) -->
+            <div class="space-y-6">
+                
+                <!-- Doctor 1: Prof. Dr. Tariq Mahmood (Type B Horizontal) -->
+                <div class="bg-white rounded-2xl border border-[#D6D2C4] shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col md:flex-row">
+                    <div class="w-full md:w-1/3 h-64 md:h-auto relative overflow-hidden bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80" alt="Prof. Dr. Tariq Mahmood" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 flex-wrap">
+                                <span class="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#BC6C25]">CARDIOLOGY</span>
+                                <span class="bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold px-3 py-0.5 rounded-full flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-red"></span> Available Today
+                                </span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-[#1B4332] mt-2">Prof. Dr. Tariq Mahmood</h3>
+                            <p class="text-xs text-[#7A7A7A] mt-0.5 font-medium">Head of Cardiology • MBBS, FCPS, FRCP London</p>
+                            <p class="text-xs text-[#4A4A4A] mt-3 leading-relaxed">
+                                25+ Years Experience • 10,000+ Successful Cardiac Procedures & Surgeries.
+                            </p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#D6D2C4]/60 pt-4 gap-4">
+                            <span class="text-xs text-[#4A4A4A]"><strong>OPD Hours:</strong> Mon, Wed, Fri (9:00 AM – 2:00 PM)</span>
+                            <a href="contact.html?doctor=Prof.+Dr.+Tariq+Mahmood" class="bg-[#1B4332] hover:bg-[#2D6A4F] text-white text-xs font-bold px-5 py-2.5 rounded-full transition-colors text-center">
+                                Book Appointment
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 2: Dr. Zainab Bilal (Type B Horizontal) -->
+                <div class="bg-white rounded-2xl border border-[#D6D2C4] shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col md:flex-row">
+                    <div class="w-full md:w-1/3 h-64 md:h-auto relative overflow-hidden bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964ac31?w=400&q=80" alt="Dr. Zainab Bilal" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 flex-wrap">
+                                <span class="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#BC6C25]">NEUROLOGY</span>
+                                <span class="bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold px-3 py-0.5 rounded-full flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-red"></span> Available Today
+                                </span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-[#1B4332] mt-2">Dr. Zainab Bilal</h3>
+                            <p class="text-xs text-[#7A7A7A] mt-0.5 font-medium">Consultant Neurologist • MBBS, FCPS Neurology</p>
+                            <p class="text-xs text-[#4A4A4A] mt-3 leading-relaxed">
+                                12+ Years Experience • Specialist in Stroke Rehabilitation & Epilepsy Management.
+                            </p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#D6D2C4]/60 pt-4 gap-4">
+                            <span class="text-xs text-[#4A4A4A]"><strong>OPD Hours:</strong> Tue, Thu, Sat (10:00 AM – 4:00 PM)</span>
+                            <a href="contact.html?doctor=Dr.+Zainab+Bilal" class="bg-[#1B4332] hover:bg-[#2D6A4F] text-white text-xs font-bold px-5 py-2.5 rounded-full transition-colors text-center">
+                                Book Appointment
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 3: Dr. Hamza Raza (Type B Horizontal) -->
+                <div class="bg-white rounded-2xl border border-[#D6D2C4] shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col md:flex-row">
+                    <div class="w-full md:w-1/3 h-64 md:h-auto relative overflow-hidden bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&q=80" alt="Dr. Hamza Raza" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 flex-wrap">
+                                <span class="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#BC6C25]">ORTHOPEDICS</span>
+                                <span class="bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold px-3 py-0.5 rounded-full flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-red"></span> Available Today
+                                </span>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-[#1B4332] mt-2">Dr. Hamza Raza</h3>
+                            <p class="text-xs text-[#7A7A7A] mt-0.5 font-medium">Orthopedic Surgeon • MBBS, MS Ortho, Fellowship USA</p>
+                            <p class="text-xs text-[#4A4A4A] mt-3 leading-relaxed">
+                                15+ Years Experience • Pioneer in Robotic Joint Replacement & Arthroscopy.
+                            </p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#D6D2C4]/60 pt-4 gap-4">
+                            <span class="text-xs text-[#4A4A4A]"><strong>OPD Hours:</strong> Mon – Fri (8:00 AM – 1:00 PM)</span>
+                            <a href="contact.html?doctor=Dr.+Hamza+Raza" class="bg-[#1B4332] hover:bg-[#2D6A4F] text-white text-xs font-bold px-5 py-2.5 rounded-full transition-colors text-center">
+                                Book Appointment
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <!-- 7. WHY CHOOSE AL-SHIFA -->
-    <section class="py-20 bg-sky-50/60 border-y border-slate-200/60">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-sm font-semibold text-sky-700 uppercase tracking-wider">Patient Centric Care</span>
-                <h2 class="font-heading font-extrabold text-3xl md:text-5xl text-slate-900 mt-2">Why Choose Al-Shifa Hospital?</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Reason 1 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
-                    <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-xl font-bold mb-5">
-                        🚨
-                    </div>
-                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">24/7 Emergency & Trauma</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Fully equipped resuscitation bays, cardiac ICU, and swift response ICU ambulances always ready.</p>
-                </div>
-
-                <!-- Reason 2 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
-                    <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center text-xl font-bold mb-5">
-                        📜
-                    </div>
-                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">JCI Accredited Standards</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Rigorous international quality standards for clinical safety, infection control, and patient outcomes.</p>
-                </div>
-
-                <!-- Reason 3 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
-                    <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center text-xl font-bold mb-5">
-                        🔬
-                    </div>
-                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Latest Medical Tech</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">3T Siemens MRI, 128-Slice CT Scan, Robotic Joint Replacement, and Digital Cath Labs.</p>
-                </div>
-
-                <!-- Reason 4 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
-                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl font-bold mb-5">
-                        💳
-                    </div>
-                    <h3 class="font-heading font-bold text-lg text-slate-900 mb-2">Cashless Insurance Panel</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Direct billing panels with Jubilee, EFU, Adamjee, IGI, and Sehat Sahulat Program.</p>
-                </div>
-            </div>
+    <!-- g) FULL-BLEED PARALLAX IMAGE SECTION -->
+    <section class="relative py-36 parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=80');">
+        <div class="absolute inset-0 bg-[#081C15]/80 backdrop-blur-[2px]"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white space-y-6">
+            <span class="text-[11px] font-semibold tracking-[0.4em] uppercase text-[#FEFAE0]">OUR CLINICAL PROMISE</span>
+            <blockquote class="font-serif text-3xl md:text-5xl leading-tight font-normal text-[#FEFAE0]">
+                "Every patient who walks through our doors is treated like family — with dignity, empathy, and world-class care."
+            </blockquote>
+            <p class="text-sm font-semibold tracking-widest text-[#D8F3DC] uppercase pt-4">
+                — Prof. Dr. Tariq Mahmood, Head of Cardiology
+            </p>
         </div>
     </section>
 
-    <!-- 8. PATIENT TESTIMONIALS -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-14">
-                <span class="text-sm font-semibold text-sky-700 uppercase tracking-wider">Verified Reviews</span>
-                <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-slate-900 mt-2">What Our Patients Say</h2>
-                <p class="text-slate-500 text-sm mt-2">Real Google & hospital feedback from patients in Lahore</p>
+    <!-- h) TESTIMONIALS (TYPE C CARDS) -->
+    <section class="py-24 md:py-36 bg-[#FDFCF9]">
+        <div class="max-w-7xl mx-auto px-6 space-y-16">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#1B4332]">PATIENT STORIES</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-[#1B4332] mt-2">What Our Patients Say</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 relative flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-1 text-amber-400 mb-4">
-                            ★★★★★
-                        </div>
-                        <p class="text-slate-700 text-sm leading-relaxed italic">
-                            "My father's bypass surgery was done by Dr. Tariq. Alhamdulillah, he recovered in 5 days. Best cardiac team in Lahore. Staff was extremely supportive throughout."
+                
+                <!-- Review 1 (Type C) -->
+                <div class="bg-[#D8F3DC]/40 border border-[#2D6A4F]/20 rounded-3xl p-8 relative flex flex-col justify-between">
+                    <span class="font-serif text-8xl text-[#1B4332] opacity-15 absolute top-2 left-4 select-none">“</span>
+                    <div class="relative z-10 space-y-4">
+                        <div class="text-amber-[#BC6C25] text-sm">★★★★★</div>
+                        <p class="text-[#4A4A4A] text-sm leading-relaxed italic">
+                            "My father's bypass surgery was done by Dr. Tariq. Alhamdulillah, he recovered in 5 days. Best cardiac team in Lahore."
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-200/80 flex items-center gap-3">
-                        <div class="w-10 h-10 bg-sky-700 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                            NA
-                        </div>
-                        <div>
-                            <p class="font-bold text-slate-900 text-sm">Ch. Nabeel Aslam</p>
-                            <p class="text-xs text-slate-500">DHA Phase 3, Lahore</p>
-                        </div>
+                    <div class="relative z-10 pt-6 mt-6 border-t border-[#2D6A4F]/10">
+                        <p class="font-bold text-[#1B4332] text-sm">Ch. Nabeel Aslam</p>
+                        <p class="text-xs text-[#7A7A7A]">DHA Phase 3, Lahore</p>
                     </div>
                 </div>
 
-                <!-- Testimonial 2 -->
-                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 relative flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-1 text-amber-400 mb-4">
-                            ★★★★★
-                        </div>
-                        <p class="text-slate-700 text-sm leading-relaxed italic">
-                            "NICU team saved my premature baby. 28 days in NICU, staff was like family. Forever grateful to Dr. Ayesha Siddiqui and the nurses."
+                <!-- Review 2 (Type C) -->
+                <div class="bg-[#D8F3DC]/40 border border-[#2D6A4F]/20 rounded-3xl p-8 relative flex flex-col justify-between">
+                    <span class="font-serif text-8xl text-[#1B4332] opacity-15 absolute top-2 left-4 select-none">“</span>
+                    <div class="relative z-10 space-y-4">
+                        <div class="text-amber-[#BC6C25] text-sm">★★★★★</div>
+                        <p class="text-[#4A4A4A] text-sm leading-relaxed italic">
+                            "NICU team saved my premature baby. 28 days in NICU, staff was like family. Forever grateful to the doctors and nurses."
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-200/80 flex items-center gap-3">
-                        <div class="w-10 h-10 bg-teal-700 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                            FN
-                        </div>
-                        <div>
-                            <p class="font-bold text-slate-900 text-sm">Fatima Noor</p>
-                            <p class="text-xs text-slate-500">Gulberg III, Lahore</p>
-                        </div>
+                    <div class="relative z-10 pt-6 mt-6 border-t border-[#2D6A4F]/10">
+                        <p class="font-bold text-[#1B4332] text-sm">Fatima Noor</p>
+                        <p class="text-xs text-[#7A7A7A]">Gulberg III, Lahore</p>
                     </div>
                 </div>
 
-                <!-- Testimonial 3 -->
-                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 relative flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-1 text-amber-400 mb-4">
-                            ★★★★★
-                        </div>
-                        <p class="text-slate-700 text-sm leading-relaxed italic">
-                            "Knee replacement by Dr. Hamza. Walking without pain after 15 years. Highly recommended hospital for orthopedic surgeries."
+                <!-- Review 3 (Type C) -->
+                <div class="bg-[#D8F3DC]/40 border border-[#2D6A4F]/20 rounded-3xl p-8 relative flex flex-col justify-between">
+                    <span class="font-serif text-8xl text-[#1B4332] opacity-15 absolute top-2 left-4 select-none">“</span>
+                    <div class="relative z-10 space-y-4">
+                        <div class="text-amber-[#BC6C25] text-sm">★★★★★</div>
+                        <p class="text-[#4A4A4A] text-sm leading-relaxed italic">
+                            "Knee replacement by Dr. Hamza. Walking without pain after 15 years. Highly recommended hospital for orthopedic care."
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-200/80 flex items-center gap-3">
-                        <div class="w-10 h-10 bg-emerald-700 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                            RI
-                        </div>
-                        <div>
-                            <p class="font-bold text-slate-900 text-sm">Rana Imran</p>
-                            <p class="text-xs text-slate-500">Askari 11, Lahore</p>
-                        </div>
+                    <div class="relative z-10 pt-6 mt-6 border-t border-[#2D6A4F]/10">
+                        <p class="font-bold text-[#1B4332] text-sm">Rana Imran</p>
+                        <p class="text-xs text-[#7A7A7A]">Askari 11, Lahore</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- 9. INSURANCE PARTNERS STRIP -->
-    <section class="py-12 bg-slate-100 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6">Empanelled Insurance & Corporate Partners</p>
-            <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14 opacity-80 font-heading font-extrabold text-slate-600 text-sm sm:text-base">
-                <span class="bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm">Jubilee Life Insurance</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm">EFU Life Takaful</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm">Adamjee Insurance</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm">IGI General Insurance</span>
-                <span class="bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm">Pak-Qatar Takaful</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 10. CTA BANNER -->
-    <section class="bg-gradient-to-r from-teal-700 to-sky-800 text-white py-16">
+    <!-- i) CTA BANNER -->
+    <section class="bg-[#1B4332] text-white py-20">
         <div class="max-w-7xl mx-auto px-6 text-center space-y-6">
-            <h2 class="font-heading font-extrabold text-3xl md:text-5xl">Your Health Cannot Wait. Book Today.</h2>
-            <p class="text-teal-100 text-base md:text-lg max-w-2xl mx-auto">Get immediate OPD appointments with top medical consultants or reach our emergency team in DHA Phase 5 Lahore.</p>
-            <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
-                <a href="contact.html" class="bg-white text-teal-800 hover:bg-teal-50 font-bold px-8 py-3.5 rounded-xl shadow-lg transition-all text-base">
-                    Book Online Appointment
+            <h2 class="font-serif text-4xl md:text-6xl text-[#FEFAE0]">Your Health Can't Wait</h2>
+            <p class="text-[#D8F3DC] text-base md:text-lg max-w-2xl mx-auto font-light">
+                Book your consultant appointment online today or connect immediately with our 24/7 emergency response team.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                <a href="contact.html" class="bg-white text-[#1B4332] hover:bg-[#FEFAE0] font-bold px-8 py-4 rounded-full shadow-lg transition-all text-sm">
+                    Book Appointment Online
                 </a>
-                <a href="https://wa.me/923001234567?text=Hi%2C%20I%20want%20to%20book%20an%20appointment" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg transition-all text-base inline-flex items-center gap-2">
-                    <span>Chat on WhatsApp</span>
+                <a href="tel:+924235771122" class="bg-transparent hover:bg-red-600/20 text-red-200 border-2 border-red-400 font-bold px-8 py-4 rounded-full transition-all text-sm flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-red-500 rounded-full pulse-red"></span>
+                    <span>Call Emergency: +92 42 35771122</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+    <!-- j) FOOTER -->
+    <footer class="bg-[#081C15] text-slate-300 pt-16 pb-12 border-t border-[#1B4332]">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#1B4332]">
                 <!-- Col 1 -->
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-sky-600 text-white rounded-xl flex items-center justify-center font-bold">
+                        <div class="w-10 h-10 bg-[#D8F3DC] text-[#1B4332] rounded-xl flex items-center justify-center font-serif text-lg font-bold">
                             AS
                         </div>
                         <div>
-                            <p class="font-heading font-bold text-white text-lg leading-none">Al-Shifa</p>
-                            <p class="text-[10px] text-sky-400 font-semibold tracking-wider uppercase mt-0.5">International Hospital</p>
+                            <p class="font-serif font-bold text-white text-xl leading-none">Al-Shifa</p>
+                            <p class="text-[10px] text-[#BC6C25] font-semibold tracking-widest uppercase mt-0.5">International Hospital</p>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Premier 250+ bed tertiary care hospital in DHA Phase 5 Lahore. Providing compassionate care and world-class medical treatment since 2008.
+                    <p class="text-xs text-slate-400 leading-relaxed font-light">
+                        Premier 250+ bed tertiary care hospital on Main Boulevard, DHA Phase 5, Lahore. Delivering evidence-based compassionate medical care since 2008.
                     </p>
-                    <div class="pt-2 text-xs space-y-1 text-slate-400">
-                        <p class="text-white font-semibold">Certifications:</p>
-                        <p>✓ JCI Accredited | PMDC Reg #48291</p>
-                        <p>✓ ISO 9001:2015 Quality Certified</p>
+                    <div class="pt-2 text-xs text-emerald-400 font-semibold">
+                        JCI Accredited | PMDC Reg #48291
                     </div>
                 </div>
 
                 <!-- Col 2 -->
                 <div class="space-y-3">
-                    <p class="font-heading font-bold text-white text-sm uppercase tracking-wider">Quick Links</p>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="about.html" class="hover:text-white transition-colors">About Hospital</a></li>
-                        <li><a href="departments.html" class="hover:text-white transition-colors">Medical Departments</a></li>
-                        <li><a href="doctors.html" class="hover:text-white transition-colors">Specialist Doctors</a></li>
-                        <li><a href="contact.html" class="hover:text-white transition-colors">Book Appointment</a></li>
-                        <li><a href="contact.html#faq" class="hover:text-white transition-colors">FAQs & Patient Info</a></li>
+                    <p class="font-serif font-bold text-white text-base tracking-wide">Departments</p>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="departments.html" class="hover:text-white transition-colors">Cardiology & Heart Center</a></li>
+                        <li><a href="departments.html" class="hover:text-white transition-colors">Neurology & Brain Institute</a></li>
+                        <li><a href="departments.html" class="hover:text-white transition-colors">Orthopedics & Joint Replacement</a></li>
+                        <li><a href="departments.html" class="hover:text-white transition-colors">Pediatrics & NICU</a></li>
+                        <li><a href="departments.html" class="hover:text-white transition-colors">Emergency & Trauma Unit</a></li>
                     </ul>
                 </div>
 
                 <!-- Col 3 -->
                 <div class="space-y-3">
-                    <p class="font-heading font-bold text-white text-sm uppercase tracking-wider">Working Hours</p>
-                    <div class="text-xs space-y-2 text-slate-400">
-                        <p><span class="text-white font-semibold">OPD Clinics:</span> 8:00 AM – 10:00 PM</p>
-                        <p><span class="text-white font-semibold">Emergency Unit:</span> 24 Hours / 7 Days</p>
-                        <p><span class="text-white font-semibold">Pharmacy & Diagnostics:</span> 24/7 Open</p>
-                    </div>
+                    <p class="font-serif font-bold text-white text-base tracking-wide">Quick Links</p>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Our Hospital</a></li>
+                        <li><a href="doctors.html" class="hover:text-white transition-colors">Specialist Consultants</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Book Appointment</a></li>
+                        <li><a href="contact.html#faq" class="hover:text-white transition-colors">Patient FAQs</a></li>
+                    </ul>
                 </div>
 
                 <!-- Col 4 -->
                 <div class="space-y-3">
-                    <p class="font-heading font-bold text-white text-sm uppercase tracking-wider">Contact & Emergency</p>
+                    <p class="font-serif font-bold text-white text-base tracking-wide">Contact & Emergency</p>
                     <div class="text-xs space-y-2 text-slate-400">
                         <p class="text-red-400 font-bold">24/7 Emergency: +92 42 35771122</p>
                         <p>Reception: +92 42 35771100</p>
                         <p>WhatsApp: +92 300 1234567</p>
                         <p>Email: info@alshifahospital.pk</p>
-                        <p class="pt-1 text-slate-400">Main Boulevard, DHA Phase 5, Lahore, Pakistan</p>
+                        <p class="pt-2 text-slate-400">Main Boulevard, DHA Phase 5, Lahore</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Insurance Partners Strip -->
+            <div class="py-8 border-b border-[#1B4332] text-center">
+                <p class="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-4">Empanelled Cashless Insurance Partners</p>
+                <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-300 font-medium">
+                    <span class="bg-[#1B4332]/50 px-3 py-1 rounded border border-[#1B4332]">Jubilee Life Insurance</span>
+                    <span class="bg-[#1B4332]/50 px-3 py-1 rounded border border-[#1B4332]">EFU Life Takaful</span>
+                    <span class="bg-[#1B4332]/50 px-3 py-1 rounded border border-[#1B4332]">Adamjee Insurance</span>
+                    <span class="bg-[#1B4332]/50 px-3 py-1 rounded border border-[#1B4332]">IGI General Insurance</span>
+                </div>
+            </div>
+
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-                <p>© 2026 Al-Shifa International Hospital. All Rights Reserved.</p>
+                <p>© 2026 Al-Shifa International Hospital Lahore. All Rights Reserved.</p>
                 <div class="flex gap-6">
-                    <a href="#" class="hover:text-slate-400">Privacy Policy</a>
-                    <a href="#" class="hover:text-slate-400">Terms of Service</a>
-                    <a href="#" class="hover:text-slate-400">PMDC Verification</a>
+                    <a href="https://facebook.com" target="_blank" class="hover:text-white">Facebook</a>
+                    <a href="https://instagram.com" target="_blank" class="hover:text-white">Instagram</a>
+                    <a href="https://youtube.com" target="_blank" class="hover:text-white">YouTube</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- SHARED JS LOGIC -->
+    <!-- FLOATING CHATBOT WIDGET -->
+    <div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
+        <button id="chatbot-toggle" class="w-14 h-14 bg-[#1B4332] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform border-2 border-[#FEFAE0]" aria-label="Open Medical Assistant">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+        </button>
+
+        <div id="chatbot-window" class="hidden fixed bottom-24 right-6 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-3xl shadow-2xl border border-[#D6D2C4] overflow-hidden flex flex-col h-[480px]">
+            <div class="bg-[#1B4332] text-white p-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full bg-[#D8F3DC] text-[#1B4332] flex items-center justify-center font-bold text-sm">
+                        AS
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-base leading-none">Al-Shifa Assistant</h4>
+                        <span class="text-[10px] text-[#FEFAE0] opacity-90 flex items-center gap-1 mt-0.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Online • Instant Help</span>
+                    </div>
+                </div>
+                <button id="chatbot-close" class="text-white/80 hover:text-white p-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs text-slate-700 bg-[#FDFCF9]">
+                <div class="bg-[#F5F0E8] p-3 rounded-2xl max-w-[85%] border border-[#D6D2C4]/60">
+                    Assalamu Alaikum! Welcome to Al-Shifa International Hospital. How can I help you today?
+                </div>
+                <div class="flex gap-1.5 flex-wrap pt-1">
+                    <button onclick="chatQuickSend('Book Appointment')" class="bg-white border border-[#1B4332] text-[#1B4332] hover:bg-[#D8F3DC] px-2.5 py-1 rounded-full text-[11px] font-semibold transition-colors">📅 Book Appointment</button>
+                    <button onclick="chatQuickSend('Emergency Helpline')" class="bg-white border border-red-600 text-red-700 hover:bg-red-50 px-2.5 py-1 rounded-full text-[11px] font-semibold transition-colors">🚨 Emergency Contact</button>
+                    <button onclick="chatQuickSend('OPD Timings')" class="bg-white border border-[#1B4332] text-[#1B4332] hover:bg-[#D8F3DC] px-2.5 py-1 rounded-full text-[11px] font-semibold transition-colors">⏰ OPD Timings</button>
+                </div>
+            </div>
+            <form id="chat-form" class="p-3 border-t border-[#D6D2C4] bg-white flex gap-2">
+                <input type="text" id="chat-input" placeholder="Ask about doctors, timings..." class="flex-1 px-3 py-2 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-1 focus:ring-[#1B4332]">
+                <button type="submit" class="bg-[#1B4332] text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-[#2D6A4F] transition-colors">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SHARED JAVASCRIPT ANIMATIONS & INTERACTIVITY -->
     <script>
-        // 1. Emergency Bar Close + LocalStorage
+        // 1. Lenis Smooth Scroll Initialization
+        if (typeof Lenis !== 'undefined') {
+            const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+            requestAnimationFrame(raf);
+        }
+
+        // 2. Emergency Bar localStorage Persistence
         const emergencyBar = document.getElementById('emergency-bar');
         const closeEmergencyBtn = document.getElementById('close-emergency');
-        const mainHeader = document.getElementById('main-header');
+        const mainNav = document.getElementById('main-nav');
 
-        if (localStorage.getItem('emergencyClosed') === 'true') {
-            if (emergencyBar) {
-                emergencyBar.style.display = 'none';
-                if (mainHeader) mainHeader.style.top = '0px';
-            }
+        if (localStorage.getItem('emgClosed') === 'true' && emergencyBar) {
+            emergencyBar.style.display = 'none';
+            if (mainNav) mainNav.style.top = '0px';
         }
 
         if (closeEmergencyBtn) {
             closeEmergencyBtn.onclick = () => {
                 if (emergencyBar) emergencyBar.style.display = 'none';
-                if (mainHeader) mainHeader.style.top = '0px';
-                localStorage.setItem('emergencyClosed', 'true');
+                if (mainNav) mainNav.style.top = '0px';
+                localStorage.setItem('emgClosed', 'true');
             };
         }
 
-        // Mobile menu toggle
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileBtn && mobileMenu) {
-            mobileBtn.onclick = () => {
-                mobileMenu.classList.toggle('hidden');
-            };
-        }
-
-        // Navbar shadow on scroll
+        // 3. Navbar Background Change on Scroll
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                mainHeader.classList.add('shadow-md');
+            if (!mainNav) return;
+            if (window.scrollY > 80) {
+                mainNav.classList.add('bg-white', 'shadow-md', 'py-3');
+                mainNav.classList.remove('bg-transparent', 'py-5');
             } else {
-                mainHeader.classList.remove('shadow-md');
+                mainNav.classList.remove('bg-white', 'shadow-md', 'py-3');
+                mainNav.classList.add('bg-transparent', 'py-5');
             }
         });
 
-        // Animated Stat Counter using IntersectionObserver
-        const statsContainer = document.getElementById('stats-container');
-        let animated = false;
+        // 4. Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.onclick = () => mobileMenu.classList.toggle('hidden');
+        }
 
-        if (statsContainer) {
+        // 5. IntersectionObserver Fade-Up Animation
+        const fadeUpElements = document.querySelectorAll('.fade-up');
+        if (fadeUpElements.length > 0) {
             const observer = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting && !animated) {
-                    animated = true;
-                    document.querySelectorAll('.stat-number').forEach(stat => {
-                        const target = parseFloat(stat.getAttribute('data-target'));
-                        const suffix = stat.getAttribute('data-suffix') || '';
-                        const isDecimal = stat.getAttribute('data-is-decimal') === 'true';
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15 });
+            fadeUpElements.forEach(el => observer.observe(el));
+        }
+
+        // 6. Stat Counter Animation
+        const statCounters = document.querySelectorAll('.stat-counter');
+        if (statCounters.length > 0) {
+            let countersTriggered = false;
+            const statsObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !countersTriggered) {
+                    countersTriggered = true;
+                    statCounters.forEach(counter => {
+                        const target = parseFloat(counter.getAttribute('data-target'));
+                        const suffix = counter.getAttribute('data-suffix') || '';
                         let current = 0;
                         const increment = target / 40;
-                        
                         const timer = setInterval(() => {
                             current += increment;
                             if (current >= target) {
                                 current = target;
                                 clearInterval(timer);
                             }
-                            if (isDecimal) {
-                                stat.textContent = current.toFixed(1) + suffix;
-                            } else {
-                                stat.textContent = Math.floor(current).toLocaleString() + suffix;
-                            }
+                            counter.textContent = Math.floor(current).toLocaleString() + suffix;
                         }, 30);
                     });
                 }
-            }, { threshold: 0.3 });
+            }, { threshold: 0.2 });
+            statsObserver.observe(statCounters[0].parentElement.parentElement);
+        }
 
-            observer.observe(statsContainer);
+        // 7. Chatbot Interaction
+        const chatToggle = document.getElementById('chatbot-toggle');
+        const chatWindow = document.getElementById('chatbot-window');
+        const chatClose = document.getElementById('chatbot-close');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        if (chatToggle && chatWindow) {
+            chatToggle.onclick = () => chatWindow.classList.toggle('hidden');
+            if (chatClose) chatClose.onclick = () => chatWindow.classList.add('hidden');
+        }
+
+        function appendMessage(text, sender = 'bot') {
+            const msg = document.createElement('div');
+            if (sender === 'user') {
+                msg.className = 'bg-[#1B4332] text-white p-3 rounded-2xl max-w-[85%] ml-auto text-xs';
+            } else {
+                msg.className = 'bg-[#F5F0E8] p-3 rounded-2xl max-w-[85%] border border-[#D6D2C4]/60 text-xs';
+            }
+            msg.textContent = text;
+            chatMessages.appendChild(msg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function chatQuickSend(query) {
+            appendMessage(query, 'user');
+            setTimeout(() => {
+                if (query.includes('Appointment')) {
+                    appendMessage("To book an appointment, please visit our Contact page or call reception at +92 42 35771100.");
+                } else if (query.includes('Emergency')) {
+                    appendMessage("🚨 Emergency Helpline: +92 42 35771122. Ambulance and trauma care are available 24/7!");
+                } else {
+                    appendMessage("OPD Clinics run Monday to Saturday, 8:00 AM to 10:00 PM.");
+                }
+            }, 600);
+        }
+
+        if (chatForm) {
+            chatForm.onsubmit = (e) => {
+                e.preventDefault();
+                const text = chatInput.value.trim();
+                if (!text) return;
+                appendMessage(text, 'user');
+                chatInput.value = '';
+                setTimeout(() => {
+                    appendMessage("Thank you for reaching out. A healthcare representative will assist you shortly, or call +92 42 35771100.");
+                }, 700);
+            };
         }
     </script>
 </body>
