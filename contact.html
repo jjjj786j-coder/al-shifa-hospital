@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment & Contact Us | Al-Shifa Hospital Lahore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#0369A1',
+                            hover: '#075985',
+                            soft: '#E0F2FE',
+                        },
+                        accent: {
+                            DEFAULT: '#0D9488',
+                            hover: '#0F766E',
+                            soft: '#CCFBF1',
+                        },
+                        emergency: '#DC2626',
+                        bgAlt: '#F0F9FF',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes pulse-dot {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .pulse-red {
+            animation: pulse-dot 1.5s infinite ease-in-out;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .pulse-red, .transition-all {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-white antialiased selection:bg-sky-100 selection:text-sky-900">
+
+    <!-- 1. EMERGENCY TOP BAR -->
+    <div id="emergency-bar" class="bg-red-600 text-white py-2.5 px-4 text-xs md:text-sm font-medium sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            <div class="flex items-center gap-2.5 flex-wrap">
+                <span class="inline-flex items-center justify-center w-3 h-3 bg-white rounded-full relative">
+                    <span class="w-2.5 h-2.5 bg-red-600 rounded-full pulse-red"></span>
+                </span>
+                <span class="font-bold uppercase tracking-wider text-red-100 bg-red-800/60 px-2 py-0.5 rounded">Emergency</span>
+                <span class="hidden sm:inline font-normal opacity-90">24/7 Trauma & Ambulance Services Available:</span>
+                <a href="tel:+924235771122" class="font-bold underline hover:text-red-100 transition-colors tracking-wide">
+                    +92 42 35771122
+                </a>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/923001234567?text=Hi%2C%20I%20have%20an%20emergency" target="_blank" class="hidden md:inline-flex items-center gap-1 bg-red-700 hover:bg-red-800 px-3 py-1 rounded text-xs transition-colors">
+                    <span>WhatsApp Emergency</span>
+                </a>
+                <button id="close-emergency" class="text-white/80 hover:text-white p-1 rounded-md transition-colors" aria-label="Close Banner">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. NAVBAR -->
+    <header id="main-header" class="bg-white/95 backdrop-blur-md sticky top-[37px] z-40 border-b border-slate-200 transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 bg-gradient-to-br from-sky-600 to-sky-800 rounded-xl flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0016.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 002 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-heading font-extrabold text-xl md:text-2xl text-slate-900 leading-none block tracking-tight">Al-Shifa</span>
+                    <span class="text-[11px] font-semibold text-sky-700 tracking-wider uppercase block mt-0.5">International Hospital</span>
+                </div>
+            </a>
+
+            <!-- Navigation Center -->
+            <nav class="hidden lg:flex items-center gap-8 font-medium text-slate-700 text-sm">
+                <a href="index.html" class="hover:text-sky-700 transition-colors pb-1">Home</a>
+                <a href="about.html" class="hover:text-sky-700 transition-colors pb-1">About Us</a>
+                <a href="departments.html" class="hover:text-sky-700 transition-colors pb-1">Departments</a>
+                <a href="doctors.html" class="hover:text-sky-700 transition-colors pb-1">Doctors</a>
+                <a href="contact.html" class="text-sky-700 font-semibold border-b-2 border-sky-600 pb-1">Contact</a>
+            </nav>
+
+            <!-- Right CTA & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="contact.html" class="hidden sm:inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <span>Book Appointment</span>
+                </a>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-700 hover:text-sky-700 focus:outline-none" aria-label="Toggle Navigation">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 font-medium text-slate-700">
+            <a href="index.html" class="block hover:text-sky-700 py-2">Home</a>
+            <a href="about.html" class="block hover:text-sky-700 py-2">About Us</a>
+            <a href="departments.html" class="block hover:text-sky-700 py-2">Departments</a>
+            <a href="doctors.html" class="block hover:text-sky-700 py-2">Doctors</a>
+            <a href="contact.html" class="block text-sky-700 font-semibold py-2">Contact</a>
+            <a href="contact.html" class="block w-full text-center bg-teal-600 text-white py-2.5 rounded-xl font-semibold mt-2">Book Appointment</a>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="bg-gradient-to-b from-sky-50 to-white py-16 border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
+            <span class="text-xs font-semibold text-sky-700 uppercase tracking-widest bg-sky-100 px-3 py-1 rounded-full border border-sky-200">OPD & Online Consultations</span>
+            <h1 class="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-slate-900 tracking-tight">
+                Book Your Medical Appointment
+            </h1>
+            <p class="text-slate-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+                Fill in the form below to reserve your consultant slot or visit our medical facility on Main Boulevard, DHA Phase 5, Lahore.
+            </p>
+        </div>
+    </section>
+
+    <!-- TWO COLUMN LAYOUT (FORM LEFT, INFO RIGHT) -->
+    <section class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+                <!-- LEFT COLUMN: BOOKING FORM -->
+                <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                    <div>
+                        <h2 class="font-heading font-extrabold text-2xl md:text-3xl text-slate-900">Appointment Request Form</h2>
+                        <p class="text-slate-500 text-xs sm:text-sm mt-1">Our hospital desk will confirm your appointment within 1 hour.</p>
+                    </div>
+
+                    <!-- Toast Success Banner -->
+                    <div id="success-toast" class="hidden bg-emerald-50 border border-emerald-300 text-emerald-800 p-4 rounded-xl text-sm flex items-start gap-3">
+                        <span class="text-emerald-600 font-bold text-lg">✓</span>
+                        <div>
+                            <p class="font-bold">Appointment Request Submitted Successfully!</p>
+                            <p class="text-xs mt-0.5 text-emerald-700">Thank you. Our receptionist will call you on your provided phone number to confirm your time slot.</p>
+                        </div>
+                    </div>
+
+                    <form id="appointment-form" class="space-y-5">
+                        
+                        <!-- Full Name & Phone -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="fullname" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Full Name *</label>
+                                <input type="text" id="fullname" required placeholder="e.g. Muhammad Ali" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent text-sm bg-slate-50/50">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Phone Number (+92) *</label>
+                                <input type="tel" id="phone" required placeholder="+92 300 1234567" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent text-sm bg-slate-50/50">
+                            </div>
+                        </div>
+
+                        <!-- Email & Patient Type -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Email Address</label>
+                                <input type="email" id="email" placeholder="name@example.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent text-sm bg-slate-50/50">
+                            </div>
+                            <div>
+                                <label for="patient_type" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Patient Type *</label>
+                                <select id="patient_type" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent text-sm bg-slate-50/50">
+                                    <option value="new">New Patient</option>
+                                    <option value="followup">Follow-up Visit</option>
+                                    <option value="emergency">Emergency Priority</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Department & Doctor (DEPENDENT DROPDOWN) -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="department" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Medical Department *</label>
+                                <select id="department" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent text-sm bg-slate-50/50">
+                                    <option value="">Select Department</option>
+                                    <option value="cardiology">Cardiology</option>
+                                    <option value="neurology">Neurology</option>
+                                    <option value="orthopedics">Orthopedics</option>
+                                    <option value="pediatrics">Pediatrics & NICU</option>
+                                    <option value="ophthalmology">Ophthalmology</option>
+                                    <option value="dental">Dental & Maxillofacial</option>
+                                    <option value="general">General Medicine & OPD</option>
+                                    <option value="dermatology">Dermatology</option>
+                                    <option value="emergency">Emergency & Trauma</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="doctor" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Preferred Consultant *</label>
+                                <select id="doctor" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent text-sm bg-slate-50/50">
+                                    <option value="">Select Department First</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Date & Time Slot -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="date" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Preferred Date *</label>
+                                <input type="date" id="date" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent text-sm bg-slate-50/50">
+                            </div>
+                            <div>
+                                <label for="time_slot" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Preferred Time Slot *</label>
+                                <select id="time_slot" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent text-sm bg-slate-50/50">
+                                    <option value="morning">Morning (8:00 AM – 12:00 PM)</option>
+                                    <option value="afternoon">Afternoon (12:00 PM – 4:00 PM)</option>
+                                    <option value="evening">Evening (4:00 PM – 8:00 PM)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Message / Symptoms -->
+                        <div>
+                            <label for="message" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Symptoms / Notes for Doctor</label>
+                            <textarea id="message" rows="3" placeholder="Briefly describe your symptoms or reason for visit..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent text-sm bg-slate-50/50"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all text-base flex items-center justify-center gap-2">
+                            <span>Confirm & Book Appointment</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- RIGHT COLUMN: CONTACT & LOCATION INFO -->
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <!-- Emergency Box -->
+                    <div class="bg-red-600 text-white p-6 rounded-2xl shadow-lg space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 bg-white rounded-full pulse-red"></span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-red-200">24/7 Trauma Helpline</span>
+                        </div>
+                        <h3 class="font-heading font-extrabold text-2xl sm:text-3xl">Need Immediate Care?</h3>
+                        <p class="text-xs text-red-100 leading-relaxed">Our trauma team and ambulances are ready 24 hours a day, 7 days a week.</p>
+                        <a href="tel:+924235771122" class="inline-block bg-white text-red-700 hover:bg-red-50 font-extrabold text-lg px-5 py-3 rounded-xl transition-colors shadow">
+                            📞 +92 42 35771122
+                        </a>
+                    </div>
+
+                    <!-- Direct Contacts -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4 text-xs text-slate-700">
+                        <h4 class="font-heading font-bold text-base text-slate-900">Hospital Contact Desk</h4>
+                        
+                        <div class="space-y-3 pt-2 border-t border-slate-100">
+                            <div class="flex items-start gap-3">
+                                <span class="text-sky-700 font-bold text-base">🏢</span>
+                                <div>
+                                    <p class="font-bold text-slate-900">Hospital Address</p>
+                                    <p class="text-slate-600 mt-0.5">Main Boulevard, DHA Phase 5, Lahore, Pakistan</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <span class="text-sky-700 font-bold text-base">☎️</span>
+                                <div>
+                                    <p class="font-bold text-slate-900">OPD & Reception Desk</p>
+                                    <p class="text-slate-600 mt-0.5">+92 42 35771100 (Ext. 101, 102)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <span class="text-emerald-600 font-bold text-base">💬</span>
+                                <div>
+                                    <p class="font-bold text-slate-900">WhatsApp Helpdesk</p>
+                                    <a href="https://wa.me/923001234567?text=Hi%2C%20I%20want%20to%20book%20an%20appointment" target="_blank" class="text-emerald-700 font-bold underline hover:text-emerald-800">
+                                        +92 300 1234567
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <span class="text-sky-700 font-bold text-base">✉️</span>
+                                <div>
+                                    <p class="font-bold text-slate-900">Email Address</p>
+                                    <p class="text-slate-600 mt-0.5">info@alshifahospital.pk</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hours Box -->
+                    <div class="bg-sky-50 border border-sky-100 p-6 rounded-2xl space-y-2 text-xs">
+                        <h4 class="font-heading font-bold text-slate-900 text-sm">Operating Timings</h4>
+                        <p><strong class="text-sky-800">OPD Clinics:</strong> 8:00 AM – 10:00 PM (Mon – Sat)</p>
+                        <p><strong class="text-sky-800">Emergency & Trauma:</strong> 24 Hours / 7 Days</p>
+                        <p><strong class="text-sky-800">Pharmacy & Diagnostics:</strong> 24 Hours Open</p>
+                    </div>
+
+                    <!-- Map Container -->
+                    <div class="bg-white p-2 rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                        <iframe title="Al-Shifa Hospital DHA Phase 5 Lahore Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13615.719602410885!2d74.397626!3d31.470404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190602f37803e5%3A0xe54e60155b41cfed!2sDHA%20Phase%205%2C%20Lahore!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk" class="w-full h-56 rounded-xl border-0" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ ACCORDION SECTION -->
+    <section class="py-20 bg-white border-t border-slate-200" id="faq">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-14 space-y-2">
+                <span class="text-xs font-semibold text-sky-700 uppercase tracking-widest">Patient Information</span>
+                <h2 class="font-heading font-extrabold text-3xl md:text-4xl text-slate-900">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4" id="faq-accordion">
+                
+                <!-- FAQ 1 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <button class="w-full text-left p-5 font-heading font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <span>How do I book an appointment online or via phone?</span>
+                        <span class="faq-icon text-sky-700 font-bold text-xl">+</span>
+                    </button>
+                    <div class="faq-content hidden p-5 pt-0 text-slate-600 text-xs sm:text-sm leading-relaxed bg-slate-50 border-t border-slate-100">
+                        You can book an appointment online using the form on this page, or call our 24/7 reception desk at +92 42 35771100. Alternatively, send us a message on WhatsApp at +92 300 1234567 for immediate confirmation.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <button class="w-full text-left p-5 font-heading font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <span>Which insurance providers are accepted for cashless treatment?</span>
+                        <span class="faq-icon text-sky-700 font-bold text-xl">+</span>
+                    </button>
+                    <div class="faq-content hidden p-5 pt-0 text-slate-600 text-xs sm:text-sm leading-relaxed bg-slate-50 border-t border-slate-100">
+                        Al-Shifa International Hospital is empanelled with all major insurance companies in Pakistan, including Jubilee Life, EFU Life Takaful, Adamjee Insurance, IGI General, Pak-Qatar Takaful, and the Sehat Sahulat Program.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <button class="w-full text-left p-5 font-heading font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <span>What are the OPD timings and consultant visiting hours?</span>
+                        <span class="faq-icon text-sky-700 font-bold text-xl">+</span>
+                    </button>
+                    <div class="faq-content hidden p-5 pt-0 text-slate-600 text-xs sm:text-sm leading-relaxed bg-slate-50 border-t border-slate-100">
+                        OPD clinics operate from 8:00 AM to 10:00 PM Monday through Saturday. Individual consultant timings vary by doctor and are listed on our Doctors page. Emergency and Pharmacy are open 24/7.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <button class="w-full text-left p-5 font-heading font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <span>How can I collect my lab reports or radiology results online?</span>
+                        <span class="faq-icon text-sky-700 font-bold text-xl">+</span>
+                    </button>
+                    <div class="faq-content hidden p-5 pt-0 text-slate-600 text-xs sm:text-sm leading-relaxed bg-slate-50 border-t border-slate-100">
+                        Lab and radiology reports can be collected in person from our 24/7 diagnostics counter or requested directly via WhatsApp. Enter your MR number on our patient portal for instant PDF downloads.
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <button class="w-full text-left p-5 font-heading font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <span>What is the patient visiting policy for ICU and general wards?</span>
+                        <span class="faq-icon text-sky-700 font-bold text-xl">+</span>
+                    </button>
+                    <div class="faq-content hidden p-5 pt-0 text-slate-600 text-xs sm:text-sm leading-relaxed bg-slate-50 border-t border-slate-100">
+                        General ward visiting hours are 4:00 PM – 7:00 PM daily (maximum 2 attendants per patient). For ICU & CCU patients, strictly 1 attendant is allowed during designated 15-minute slots at 11:00 AM and 5:00 PM to ensure maximum infection control.
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <button class="w-full text-left p-5 font-heading font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <span>Is patient and visitor parking available on hospital premises?</span>
+                        <span class="faq-icon text-sky-700 font-bold text-xl">+</span>
+                    </button>
+                    <div class="faq-content hidden p-5 pt-0 text-slate-600 text-xs sm:text-sm leading-relaxed bg-slate-50 border-t border-slate-100">
+                        Yes, Al-Shifa provides secure multi-level basement parking for patients and visitors with 24/7 CCTV surveillance and valet emergency drop-off at the main entrance in DHA Phase 5 Lahore.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+                <!-- Col 1 -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-sky-600 text-white rounded-xl flex items-center justify-center font-bold">
+                            AS
+                        </div>
+                        <div>
+                            <p class="font-heading font-bold text-white text-lg leading-none">Al-Shifa</p>
+                            <p class="text-[10px] text-sky-400 font-semibold tracking-wider uppercase mt-0.5">International Hospital</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Premier 250+ bed tertiary care hospital in DHA Phase 5 Lahore. Providing compassionate care and world-class medical treatment since 2008.
+                    </p>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="space-y-3">
+                    <p class="font-heading font-bold text-white text-sm uppercase tracking-wider">Quick Links</p>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Hospital</a></li>
+                        <li><a href="departments.html" class="hover:text-white transition-colors">Medical Departments</a></li>
+                        <li><a href="doctors.html" class="hover:text-white transition-colors">Specialist Doctors</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Book Appointment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div class="space-y-3">
+                    <p class="font-heading font-bold text-white text-sm uppercase tracking-wider">Working Hours</p>
+                    <div class="text-xs space-y-2 text-slate-400">
+                        <p><span class="text-white font-semibold">OPD Clinics:</span> 8:00 AM – 10:00 PM</p>
+                        <p><span class="text-white font-semibold">Emergency Unit:</span> 24 Hours / 7 Days</p>
+                        <p><span class="text-white font-semibold">Pharmacy & Lab:</span> 24/7 Open</p>
+                    </div>
+                </div>
+
+                <!-- Col 4 -->
+                <div class="space-y-3">
+                    <p class="font-heading font-bold text-white text-sm uppercase tracking-wider">Contact & Emergency</p>
+                    <div class="text-xs space-y-2 text-slate-400">
+                        <p class="text-red-400 font-bold">24/7 Emergency: +92 42 35771122</p>
+                        <p>Reception: +92 42 35771100</p>
+                        <p>WhatsApp: +92 300 1234567</p>
+                        <p>Email: info@alshifahospital.pk</p>
+                        <p class="pt-1 text-slate-400">Main Boulevard, DHA Phase 5, Lahore, Pakistan</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>© 2026 Al-Shifa International Hospital. All Rights Reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-slate-400">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-400">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SHARED JS LOGIC + FORM VALIDATION & DEPENDENT DROPDOWN -->
+    <script>
+        const emergencyBar = document.getElementById('emergency-bar');
+        const closeEmergencyBtn = document.getElementById('close-emergency');
+        const mainHeader = document.getElementById('main-header');
+
+        if (localStorage.getItem('emergencyClosed') === 'true') {
+            if (emergencyBar) {
+                emergencyBar.style.display = 'none';
+                if (mainHeader) mainHeader.style.top = '0px';
+            }
+        }
+
+        if (closeEmergencyBtn) {
+            closeEmergencyBtn.onclick = () => {
+                if (emergencyBar) emergencyBar.style.display = 'none';
+                if (mainHeader) mainHeader.style.top = '0px';
+                localStorage.setItem('emergencyClosed', 'true');
+            };
+        }
+
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.onclick = () => {
+                mobileMenu.classList.toggle('hidden');
+            };
+        }
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                mainHeader.classList.add('shadow-md');
+            } else {
+                mainHeader.classList.remove('shadow-md');
+            }
+        });
+
+        // Feature 4: Date Input Validation (min = today)
+        const dateInput = document.getElementById('date');
+        if (dateInput) {
+            dateInput.min = new Date().toISOString().split('T')[0];
+        }
+
+        // Feature 5: Dependent Dropdown (Department -> Doctor)
+        const doctorsByDept = {
+            cardiology: [
+                { value: "Prof. Dr. Tariq Mahmood", name: "Prof. Dr. Tariq Mahmood (Head of Cardiology)" }
+            ],
+            neurology: [
+                { value: "Dr. Zainab Bilal", name: "Dr. Zainab Bilal (Consultant Neurologist)" }
+            ],
+            orthopedics: [
+                { value: "Dr. Hamza Raza", name: "Dr. Hamza Raza (Orthopedic Surgeon)" }
+            ],
+            pediatrics: [
+                { value: "Dr. Ayesha Siddiqui", name: "Dr. Ayesha Siddiqui (Pediatric Specialist)" }
+            ],
+            ophthalmology: [
+                { value: "Dr. Usman Khalid", name: "Dr. Usman Khalid (Eye Surgeon)" }
+            ],
+            dental: [
+                { value: "Dr. Farhan Ali", name: "Dr. Farhan Ali (Senior Dental Surgeon)" }
+            ],
+            general: [
+                { value: "Dr. Bilal Ahmad", name: "Dr. Bilal Ahmad (General Physician)" }
+            ],
+            dermatology: [
+                { value: "Dr. Sana Rauf", name: "Dr. Sana Rauf (Dermatologist)" }
+            ],
+            emergency: [
+                { value: "Dr. Haris Malik", name: "Dr. Haris Malik (Trauma Specialist)" }
+            ]
+        };
+
+        const deptSelect = document.getElementById('department');
+        const doctorSelect = document.getElementById('doctor');
+
+        function updateDoctors(selectedDept, selectedDoctorName = null) {
+            doctorSelect.innerHTML = '';
+
+            if (!selectedDept || !doctorsByDept[selectedDept]) {
+                const defaultOpt = document.createElement('option');
+                defaultOpt.value = '';
+                defaultOpt.textContent = 'Select Department First';
+                doctorSelect.appendChild(defaultOpt);
+                return;
+            }
+
+            const docs = doctorsByDept[selectedDept];
+            docs.forEach(doc => {
+                const opt = document.createElement('option');
+                opt.value = doc.value;
+                opt.textContent = doc.name;
+                if (selectedDoctorName && (doc.value.toLowerCase().includes(selectedDoctorName.toLowerCase()) || doc.name.toLowerCase().includes(selectedDoctorName.toLowerCase()))) {
+                    opt.selected = true;
+                }
+                doctorSelect.appendChild(opt);
+            });
+        }
+
+        if (deptSelect && doctorSelect) {
+            deptSelect.addEventListener('change', (e) => {
+                updateDoctors(e.target.value);
+            });
+        }
+
+        // Auto pre-select from URL params (e.g. contact.html?doctor=Prof.+Dr.+Tariq+Mahmood&dept=cardiology)
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlDept = urlParams.get('dept');
+        const urlDoctor = urlParams.get('doctor');
+
+        if (urlDept && deptSelect) {
+            deptSelect.value = urlDept.toLowerCase();
+            updateDoctors(urlDept.toLowerCase(), urlDoctor);
+        } else if (urlDoctor && deptSelect) {
+            // Find dept matching doctor
+            let matchedDept = 'cardiology';
+            if (urlDoctor.includes('Zainab')) matchedDept = 'neurology';
+            else if (urlDoctor.includes('Hamza')) matchedDept = 'orthopedics';
+            else if (urlDoctor.includes('Ayesha')) matchedDept = 'pediatrics';
+            else if (urlDoctor.includes('Usman')) matchedDept = 'ophthalmology';
+            else if (urlDoctor.includes('Sana')) matchedDept = 'dermatology';
+            
+            deptSelect.value = matchedDept;
+            updateDoctors(matchedDept, urlDoctor);
+        }
+
+        // Form Submit Handler with Toast Alert
+        const form = document.getElementById('appointment-form');
+        const successToast = document.getElementById('success-toast');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (successToast) {
+                    successToast.classList.remove('hidden');
+                    window.scrollTo({ top: form.offsetTop - 100, behavior: 'smooth' });
+                }
+                form.reset();
+                if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+            });
+        }
+
+        // FAQ Accordion Toggle
+        const faqButtons = document.querySelectorAll('#faq-accordion button');
+        faqButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.faq-icon');
+                
+                const isOpen = !content.classList.contains('hidden');
+                
+                // Close all
+                document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+                document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '+');
+
+                if (!isOpen) {
+                    content.classList.remove('hidden');
+                    if (icon) icon.textContent = '−';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
