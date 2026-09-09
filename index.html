@@ -614,44 +614,6 @@
         </div>
     </footer>
 
-    <!-- FLOATING CHATBOT WIDGET -->
-    <div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
-        <button id="chatbot-toggle" class="w-14 h-14 bg-[#1B4332] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform border-2 border-[#FEFAE0]" aria-label="Open Medical Assistant">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
-        </button>
-
-        <div id="chatbot-window" class="hidden fixed bottom-24 right-6 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-3xl shadow-2xl border border-[#D6D2C4] overflow-hidden flex flex-col h-[480px]">
-            <div class="bg-[#1B4332] text-white p-4 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-full bg-[#D8F3DC] text-[#1B4332] flex items-center justify-center font-bold text-sm">
-                        AS
-                    </div>
-                    <div>
-                        <h4 class="font-serif font-bold text-base leading-none">Al-Shifa Assistant</h4>
-                        <span class="text-[10px] text-[#FEFAE0] opacity-90 flex items-center gap-1 mt-0.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Online • Instant Help</span>
-                    </div>
-                </div>
-                <button id="chatbot-close" class="text-white/80 hover:text-white p-1">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs text-slate-700 bg-[#FDFCF9]">
-                <div class="bg-[#F5F0E8] p-3 rounded-2xl max-w-[85%] border border-[#D6D2C4]/60">
-                    Assalamu Alaikum! Welcome to Al-Shifa International Hospital. How can I help you today?
-                </div>
-                <div class="flex gap-1.5 flex-wrap pt-1">
-                    <button onclick="chatQuickSend('Book Appointment')" class="bg-white border border-[#1B4332] text-[#1B4332] hover:bg-[#D8F3DC] px-2.5 py-1 rounded-full text-[11px] font-semibold transition-colors">📅 Book Appointment</button>
-                    <button onclick="chatQuickSend('Emergency Helpline')" class="bg-white border border-red-600 text-red-700 hover:bg-red-50 px-2.5 py-1 rounded-full text-[11px] font-semibold transition-colors">🚨 Emergency Contact</button>
-                    <button onclick="chatQuickSend('OPD Timings')" class="bg-white border border-[#1B4332] text-[#1B4332] hover:bg-[#D8F3DC] px-2.5 py-1 rounded-full text-[11px] font-semibold transition-colors">⏰ OPD Timings</button>
-                </div>
-            </div>
-            <form id="chat-form" class="p-3 border-t border-[#D6D2C4] bg-white flex gap-2">
-                <input type="text" id="chat-input" placeholder="Ask about doctors, timings..." class="flex-1 px-3 py-2 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-1 focus:ring-[#1B4332]">
-                <button type="submit" class="bg-[#1B4332] text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-[#2D6A4F] transition-colors">Send</button>
-            </form>
-        </div>
-    </div>
-
     <!-- SHARED JAVASCRIPT ANIMATIONS & INTERACTIVITY -->
     <script>
         // 1. Lenis Smooth Scroll Initialization
@@ -737,56 +699,6 @@
             statsObserver.observe(statCounters[0].parentElement.parentElement);
         }
 
-        // 7. Chatbot Interaction
-        const chatToggle = document.getElementById('chatbot-toggle');
-        const chatWindow = document.getElementById('chatbot-window');
-        const chatClose = document.getElementById('chatbot-close');
-        const chatForm = document.getElementById('chat-form');
-        const chatInput = document.getElementById('chat-input');
-        const chatMessages = document.getElementById('chat-messages');
-
-        if (chatToggle && chatWindow) {
-            chatToggle.onclick = () => chatWindow.classList.toggle('hidden');
-            if (chatClose) chatClose.onclick = () => chatWindow.classList.add('hidden');
-        }
-
-        function appendMessage(text, sender = 'bot') {
-            const msg = document.createElement('div');
-            if (sender === 'user') {
-                msg.className = 'bg-[#1B4332] text-white p-3 rounded-2xl max-w-[85%] ml-auto text-xs';
-            } else {
-                msg.className = 'bg-[#F5F0E8] p-3 rounded-2xl max-w-[85%] border border-[#D6D2C4]/60 text-xs';
-            }
-            msg.textContent = text;
-            chatMessages.appendChild(msg);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function chatQuickSend(query) {
-            appendMessage(query, 'user');
-            setTimeout(() => {
-                if (query.includes('Appointment')) {
-                    appendMessage("To book an appointment, please visit our Contact page or call reception at +92 42 35771100.");
-                } else if (query.includes('Emergency')) {
-                    appendMessage("🚨 Emergency Helpline: +92 42 35771122. Ambulance and trauma care are available 24/7!");
-                } else {
-                    appendMessage("OPD Clinics run Monday to Saturday, 8:00 AM to 10:00 PM.");
-                }
-            }, 600);
-        }
-
-        if (chatForm) {
-            chatForm.onsubmit = (e) => {
-                e.preventDefault();
-                const text = chatInput.value.trim();
-                if (!text) return;
-                appendMessage(text, 'user');
-                chatInput.value = '';
-                setTimeout(() => {
-                    appendMessage("Thank you for reaching out. A healthcare representative will assist you shortly, or call +92 42 35771100.");
-                }, 700);
-            };
-        }
     </script>
 </body>
 </html>

@@ -463,37 +463,6 @@
         </div>
     </footer>
 
-    <!-- FLOATING CHATBOT WIDGET -->
-    <div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
-        <button id="chatbot-toggle" class="w-14 h-14 bg-[#1B4332] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform border-2 border-[#FEFAE0]" aria-label="Open Medical Assistant">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
-        </button>
-
-        <div id="chatbot-window" class="hidden fixed bottom-24 right-6 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-3xl shadow-2xl border border-[#D6D2C4] overflow-hidden flex flex-col h-[480px]">
-            <div class="bg-[#1B4332] text-white p-4 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-full bg-[#D8F3DC] text-[#1B4332] flex items-center justify-center font-bold text-sm">AS</div>
-                    <div>
-                        <h4 class="font-serif font-bold text-base leading-none">Al-Shifa Assistant</h4>
-                        <span class="text-[10px] text-[#FEFAE0] opacity-90 flex items-center gap-1 mt-0.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Online</span>
-                    </div>
-                </div>
-                <button id="chatbot-close" class="text-white/80 hover:text-white p-1">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs text-slate-700 bg-[#FDFCF9]">
-                <div class="bg-[#F5F0E8] p-3 rounded-2xl max-w-[85%] border border-[#D6D2C4]/60">
-                    Welcome to Appointment Desk! How can I assist your booking?
-                </div>
-            </div>
-            <form id="chat-form" class="p-3 border-t border-[#D6D2C4] bg-white flex gap-2">
-                <input type="text" id="chat-input" placeholder="Type a message..." class="flex-1 px-3 py-2 border border-slate-300 rounded-xl text-xs focus:outline-none focus:ring-1 focus:ring-[#1B4332]">
-                <button type="submit" class="bg-[#1B4332] text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-[#2D6A4F] transition-colors">Send</button>
-            </form>
-        </div>
-    </div>
-
     <!-- JS DATE VALIDATION & DEPENDENT DROPDOWN & ACCORDION -->
     <script>
         if (typeof Lenis !== 'undefined') {
@@ -633,13 +602,6 @@
             };
         });
 
-        const chatToggle = document.getElementById('chatbot-toggle');
-        const chatWindow = document.getElementById('chatbot-window');
-        const chatClose = document.getElementById('chatbot-close');
-        if (chatToggle && chatWindow) {
-            chatToggle.onclick = () => chatWindow.classList.toggle('hidden');
-            if (chatClose) chatClose.onclick = () => chatWindow.classList.add('hidden');
-        }
     </script>
 </body>
 </html>
